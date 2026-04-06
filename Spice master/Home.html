@@ -1,36 +1,1373 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Spice Masters International – Home</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><style>:root{--green:#1F4D2E;--gold:#C9A227;--dark:#1F2937;--gray:#6B7280;--light:#E5E7EB;--sand:#F5F5F5;--white:#FFFFFF;--font-h:'Playfair Display',serif;--font-b:'Open Sans',sans-serif}*,::after,::before{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--font-b);color:var(--dark);background:var(--white);overflow-x:hidden}img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-style:none}.container{width:100%;max-width:1280px;margin:0 auto;padding:0 48px}.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}.navbar{position:fixed;top:0;left:0;width:100%;z-index:200;background:0 0;box-shadow:none;transition:background .4s ease,box-shadow .4s ease}.navbar.scrolled{background:var(--green);box-shadow:0 2px 24px rgba(0,0,0,.28)}.nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px;padding:0 48px;max-width:1440px;margin:0 auto}.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;flex-shrink:0}.nav-logo-img{width:54px;height:54px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,255,255,.3);background:#fff}.nav-logo-text{display:flex;flex-direction:column;gap:3px}.nav-logo-name{font-family:var(--font-h);font-size:17px;font-weight:700;color:#fff;line-height:1;white-space:nowrap}.nav-logo-slogan{font-family:var(--font-b);font-size:13px;font-weight:600;color:var(--gold);line-height:1;white-space:nowrap}.nav-links{display:flex;gap:2px;align-items:center}.nav-links a{font-size:13px;font-weight:600;color:rgba(255,255,255,.88);letter-spacing:.3px;padding:6px 11px;border-radius:4px;transition:color .2s}.nav-links a.active,.nav-links a:hover{color:var(--gold)}.nav-btn{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;padding:10px 22px;border-radius:5px;background:var(--gold);color:#fff;transition:opacity .2s;white-space:nowrap}.nav-btn:hover{opacity:.85}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px}.mobile-menu{display:none;flex-direction:column;background:var(--green);max-height:0;overflow:hidden;transition:max-height .4s}.mobile-menu.open{max-height:480px}.mobile-menu a{padding:13px 24px;font-size:14px;font-weight:600;color:rgba(255,255,255,.9);border-bottom:1px solid rgba(255,255,255,.08)}.mobile-menu a:hover{color:var(--gold)}.hero{position:relative;height:100vh;min-height:580px;overflow:hidden;background:var(--green)}.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;display:flex;align-items:center}.hero-slide.active{opacity:1}.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center}.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(20,50,28,.82) 38%,rgba(20,50,28,.28) 100%)}.slide1 .hero-bg{background-image:url(Assest/Home/hero-1.png)}.slide2 .hero-bg{background-image:url(Assest/Home/Hero-2.png)}.hero-body{position:relative;z-index:2;padding:0 80px;max-width:680px}.hero-label{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.7px;margin-bottom:14px}.hero-title{font-family:var(--font-h);font-size:clamp(38px,5.5vw,72px);font-weight:700;color:#fff;line-height:1.1;margin-bottom:18px}.hero-sub{font-size:17px;color:rgba(255,255,255,.82);line-height:1.7;margin-bottom:34px}.hero-btns{display:flex;gap:14px;flex-wrap:wrap}.btn-gold{display:inline-block;padding:13px 28px;background:var(--gold);color:#fff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;border-radius:5px;border:2px solid var(--gold);transition:.25s}.btn-gold:hover{background:0 0;color:var(--gold)}.btn-outline-w{display:inline-block;padding:13px 28px;background:0 0;color:#fff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;border-radius:5px;border:2px solid rgba(255,255,255,.7);transition:.25s}.btn-outline-w:hover{background:#fff;color:var(--green)}.hero-dots{position:absolute;bottom:32px;left:80px;z-index:3;display:flex;gap:8px}.dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:.3s;border:none;padding:0}.dot.active{background:var(--gold);transform:scale(1.35)}.hero-cards{display:grid;grid-template-columns:1fr 1fr}.h-card{padding:34px 48px}.h-card.green{background:var(--green)}.h-card.gold{background:var(--gold)}.h-card h3{font-family:var(--font-h);font-size:22px;font-weight:700;color:#fff;margin-bottom:10px}.h-card p{font-size:13px;color:rgba(255,255,255,.78);line-height:1.75;margin-bottom:16px}.h-card a{font-size:13px;font-weight:700;color:#fff;text-decoration:underline;text-underline-offset:3px;transition:opacity .2s}.h-card a:hover{opacity:.7}.about{padding:96px 0}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:stretch}.about-img{height:100%;display:flex;border-radius:10px;overflow:hidden}.about-img img{width:100%;height:100%;object-fit:cover;border-radius:10px}.sec-label{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px}.sec-title{font-family:var(--font-h);font-size:clamp(26px,3.5vw,42px);font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:16px}.about-desc{font-size:15px;color:var(--gray);line-height:1.85;margin-bottom:28px}.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px}.feat{padding:18px;background:var(--sand);border-radius:8px;border-left:3px solid var(--gold);transition:transform .3s}.feat:hover{transform:translateY(-3px)}.feat h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:6px}.feat p{font-size:13px;color:var(--gray);line-height:1.6}.btn-green{display:inline-block;padding:13px 32px;background:var(--green);color:#fff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;border-radius:5px;border:2px solid var(--green);transition:.25s}.btn-green:hover{background:0 0;color:var(--green)}.process{padding:96px 0;background:var(--white)}.sec-head{text-align:center;margin-bottom:56px}.sec-desc{font-size:15px;color:var(--gray);line-height:1.7;max-width:680px;margin:14px auto 0}.proc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.p-card{background:var(--sand);border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s}.p-card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,.12)}.p-img{aspect-ratio:16/9;overflow:hidden}.p-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.p-card:hover .p-img img{transform:scale(1.06)}.p-body{padding:20px}.p-tag{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px}.p-title{font-family:var(--font-h);font-size:17px;font-weight:700;color:var(--dark);margin-bottom:8px}.p-desc{font-size:13px;color:var(--gray);line-height:1.65}.proc-cta{text-align:center;margin-top:44px}.products{padding:96px 0;background:var(--sand)}.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.pr-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.07);transition:transform .3s,box-shadow .3s}.pr-card:hover{transform:translateY(-7px);box-shadow:0 12px 36px rgba(0,0,0,.13)}.pr-img{overflow:hidden;aspect-ratio:1}.pr-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.pr-card:hover .pr-img img{transform:scale(1.07)}.pr-body{padding:22px}.pr-body h3{font-family:var(--font-h);font-size:18px;font-weight:700;color:var(--dark);margin-bottom:8px;line-height:1.3}.pr-body p{font-size:13px;color:var(--gray);line-height:1.7;margin-bottom:18px}.btn-outline-gold{display:inline-block;padding:10px 22px;background:0 0;color:var(--gold);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;border-radius:5px;border:2px solid var(--gold);transition:.25s}.btn-outline-gold:hover{background:var(--gold);color:#fff}.certs{padding:80px 0;background:var(--green)}.certs .sec-head .sec-label{color:var(--gold)}.certs .sec-head .sec-title{color:#fff}.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.c-card{background:#fff;border:1px solid var(--light);border-radius:10px;padding:28px 20px;text-align:center;transition:box-shadow .3s,transform .3s}.c-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.18);transform:translateY(-4px)}.c-icon{width:60px;height:60px;object-fit:contain;margin:0 auto 14px;display:block}.c-card h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:6px;line-height:1.3}.c-card p{font-size:12px;color:var(--gray);line-height:1.6}.bottom-bar{display:grid;grid-template-columns:1fr 1fr}.newsletter{padding:56px 64px;background:var(--white);border-top:1px solid var(--light)}.newsletter h3{font-family:var(--font-h);font-size:26px;font-weight:700;color:var(--dark);margin-bottom:10px}.newsletter p{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:22px}.nl-form{display:flex;gap:10px}.nl-form input{flex:1;padding:12px 16px;border:1px solid var(--light);border-radius:5px;font-family:var(--font-b);font-size:14px;outline:0;transition:border-color .2s}.nl-form input:focus{border-color:var(--green)}.ready{padding:56px 64px;background:var(--gold)}.ready h3{font-family:var(--font-h);font-size:26px;font-weight:700;color:#fff;margin-bottom:10px}.ready p{font-size:14px;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:24px}.btn-white{display:inline-block;padding:12px 28px;background:#fff;color:var(--gold);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;border-radius:5px;border:2px solid #fff;transition:.25s}.btn-white:hover{background:0 0;color:#fff}.footer{background:var(--green);color:#fff;padding:60px 0 28px}.f-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.5fr;gap:44px;margin-bottom:44px}.f-logo{display:flex;align-items:center;gap:14px;margin-bottom:16px}.f-logo-img{width:54px;height:54px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,255,255,.3);background:#fff}.f-logo-text{display:flex;flex-direction:column;gap:3px}.f-logo-name{font-family:var(--font-h);font-size:17px;font-weight:700;color:#fff;line-height:1;white-space:nowrap}.f-logo-slogan{font-family:var(--font-b);font-size:13px;font-weight:600;color:var(--gold);line-height:1;white-space:nowrap}.f-brand p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.85;margin-bottom:20px}.f-social{display:flex;gap:8px;flex-wrap:wrap}.f-social a{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);transition:background .2s,border-color .2s,transform .2s}.f-social a:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-3px)}.f-social a svg{width:15px;height:15px;display:block}.f-col h4{font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.7px;margin-bottom:18px}.f-col ul li{margin-bottom:10px}.f-col ul li a{font-size:13px;color:rgba(255,255,255,.65);transition:color .2s}.f-col ul li a:hover{color:var(--gold)}.f-addr{font-size:13px;color:rgba(255,255,255,.65);line-height:2.1}.f-addr strong{color:#fff;display:block;margin-bottom:2px}.f-addr a{color:rgba(255,255,255,.65);transition:color .2s}.f-addr a:hover{color:var(--gold)}.f-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}.f-bottom p{font-size:12px;color:rgba(255,255,255,.4)}@media (max-width:1100px){.nav-links a{font-size:12px;padding:5px 8px}.nav-logo-name{font-size:15px}}@media (max-width:1024px){.proc-grid,.prod-grid{grid-template-columns:1fr 1fr}.cert-grid{grid-template-columns:1fr 1fr}.f-grid{grid-template-columns:1fr 1fr}.bottom-bar{grid-template-columns:1fr}}@media (max-width:768px){.container{padding:0 20px}.nav-inner{padding:0 20px}.nav-btn,.nav-links{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.hero-body{padding:0 24px}.hero-dots{left:24px}.hero-cards{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr;gap:40px}.feat-grid{grid-template-columns:1fr}.proc-grid,.prod-grid{grid-template-columns:1fr}.newsletter,.ready{padding:40px 24px}.f-grid{grid-template-columns:1fr;gap:28px}.nl-form{flex-direction:column}.nav-logo-name{font-size:14px}.f-logo-name{font-size:15px}}@media (max-width:480px){.hero-btns{flex-direction:column;align-items:flex-start}.cert-grid{grid-template-columns:1fr 1fr}.f-logo-slogan,.nav-logo-slogan{font-size:11px}}</style></head><body><nav class="navbar" id="navbar"><div class="nav-inner"><a href="Home.html" class="nav-logo"><img class="nav-logo-img" src="./Assest/Home/SML Logo.png" alt="Spice Masters International"><div class="nav-logo-text"><span class="nav-logo-name">Spice Masters International</span><span class="nav-logo-slogan">Pure Spices, Healthy living</span></div></a><ul class="nav-links"><li><a href="Home.html" class="active">Home</a></li><li><a href="aboutus.html">About Us</a></li><li><a href="products.html">Products</a></li><li><a href="plantation.html">Plantation</a></li><li><a href="trading.html">Trading</a></li><li><a href="process.html">Quality Process</a></li><li><a href="contact.html">Contact Us</a></li></ul><a href="contact.html" class="nav-btn">Get In Touch</a><div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div></div><div class="mobile-menu" id="mobileMenu"><a href="Home.html">Home</a><a href="aboutus.html">About Us</a><a href="products.html">Products</a><a href="plantation.html">Plantation</a><a href="trading.html">Trading</a><a href="process.html">Quality Process</a><a href="contact.html">Contact Us</a></div></nav><section class="hero"><div class="hero-slide slide1 active"><div class="hero-bg"></div><div class="hero-body"><p class="hero-label">Green Cardamom Plantation</p><h1 class="hero-title">The Queen<br>of Spices</h1><p class="hero-sub">Direct from the evergreen forests of the Western Ghats</p><div class="hero-btns"><a href="plantation.html" class="btn-gold">Explore</a><a href="contact.html" class="btn-outline-w">Contact</a></div></div></div><div class="hero-slide slide2"><div class="hero-bg"></div><div class="hero-body"><p class="hero-label">Green Cardamom Trading</p><h1 class="hero-title">Agri Commodity<br>Excellence</h1><p class="hero-sub">Premium quality spices for global markets</p><div class="hero-btns"><a href="products.html" class="btn-gold">Products</a><a href="contact.html" class="btn-outline-w">Contact</a></div></div></div><div class="hero-dots"><div class="dot active" onclick="goSlide(0)"></div><div class="dot" onclick="goSlide(1)"></div></div></section><div class="hero-cards"><div class="h-card green reveal"><h3>Cardamom Plantation</h3><p>Spices is native to the evergreen forests of South India. Cultivated with care across our own managed farms for superior quality.</p><a href="plantation.html">Read More →</a></div><div class="h-card gold reveal"><h3>Cardamom Trading</h3><p>Nadu, the heart of cardamom cultivation. We trade directly ensuring freshness and premium quality to buyers worldwide.</p><a href="trading.html">Read More →</a></div></div><section class="about"><div class="container"><div class="about-grid"><div class="about-img reveal"><img src="./Assest/Home/Home-About-us-img.jpg" alt="Spice Masters International facility"></div><div class="about-content reveal"><p class="sec-label">About Us</p><h2 class="sec-title">Spice Masters<br>International</h2><p class="about-desc">is Indian Green Cardamom and Black Pepper exporter, manufacturer, producer &amp; supplier from Bodinayakanur, Tamilnadu, India Since 2016. We are committed to delivering the finest quality spices to the world.</p><div class="feat-grid"><div class="feat"><h4>🌿 Organic Transitioning</h4><p>It helps to maintain environment health by reducing the level of pollution.</p></div><div class="feat"><h4>🏆 Award Winning</h4><p>Recognized by Tamil Nadu Agriculture University &amp; Spice Expo 2022.</p></div></div><a href="about.html" class="btn-green">Learn More About Us</a></div></div></div></section><section class="process"><div class="container"><div class="sec-head reveal"><p class="sec-label">Procurement</p><h2 class="sec-title">Our Process</h2><p class="sec-desc">We procure raw spices like cardamom and pepper directly from farmers to ensure that whenever anyone uses our spices, they always use fresh spices in food preparations.</p></div><div class="proc-grid"><div class="p-card reveal"><div class="p-img"><img src="./Assest/Home/Raw-Material -Inspection.png" alt="Raw Material Inspection"></div><div class="p-body"><p class="p-tag">Quality Check</p><h3 class="p-title">Raw Material Inspection</h3><p class="p-desc">Ensuring quality from the very beginning.</p></div></div><div class="p-card reveal"><div class="p-img"><img src="./Assest/Home/In-Process-Quality-Checks.png" alt="In-Process Quality Checks"></div><div class="p-body"><p class="p-tag">Quality Check</p><h3 class="p-title">In-Process Quality Checks</h3><p class="p-desc">Continuous monitoring for consistent quality.</p></div></div><div class="p-card reveal"><div class="p-img"><img src="./Assest/Home/Final-Product-Testing.png" alt="Final Product Testing"></div><div class="p-body"><p class="p-tag">Quality Check</p><h3 class="p-title">Final Product Testing</h3><p class="p-desc">Rigorous testing for ultimate reliability.</p></div></div><div class="p-card reveal"><div class="p-img"><img src="./Assest/Home/Packaging-Verification.png" alt="Packaging Verification"></div><div class="p-body"><p class="p-tag">Quality Check</p><h3 class="p-title">Packaging &amp; Labeling Verification</h3><p class="p-desc">Protecting your product, inside and out.</p></div></div><div class="p-card reveal"><div class="p-img"><img src="./Assest/Home/Post-Production.png" alt="Post Production"></div><div class="p-body"><p class="p-tag">Quality Check</p><h3 class="p-title">Post-Production Audit &amp; Feedback</h3><p class="p-desc">Learning and improving for future excellence.</p></div></div></div><div class="proc-cta reveal"><a href="contact.html" class="btn-green">Contact Us For Details</a></div></div></section><section class="products"><div class="container"><div class="sec-head reveal"><p class="sec-label">Our Products</p><h2 class="sec-title">Premium Spices</h2><p class="sec-desc">We offer a range of premium spices and natural products sourced directly from trusted farmers and plantations.</p></div><div class="prod-grid"><div class="pr-card reveal"><div class="pr-img"><img src="./Assest/Home/Green-Cardamom Pods.png" alt="Premium Green Cardamom Pods"></div><div class="pr-body"><h3>Premium Green Cardamom Pods</h3><p>Sweet, citrusy notes. Perfect for both sweet and savoury dishes. Handpicked from the finest plantations of the Western Ghats.</p><a href="product-details.html" class="btn-outline-gold">View Details</a></div></div><div class="pr-card reveal"><div class="pr-img"><img src="./Assest/Home/Malabar-Black-Pepper.png" alt="Malabar Black Pepper Whole"></div><div class="pr-body"><h3>Malabar Black Pepper Whole</h3><p>Bold and pungent whole black peppercorns from the Malabar coast, offering a robust flavor and a warm, spicy kick. Ideal for grinding fresh over any dish.</p><a href="product-details.html" class="btn-outline-gold">View Details</a></div></div><div class="pr-card reveal"><div class="pr-img"><img src="./Assest/Home/Forest-Honey.jpg" alt="Pure Forest Honey"></div><div class="pr-body"><h3>Pure Forest Honey</h3><p>Raw, unprocessed forest honey harvested from the pristine Western Ghats. Rich in natural enzymes, antioxidants, and authentic floral notes.</p><a href="product-details.html" class="btn-outline-gold">View Details</a></div></div></div><div class="proc-cta reveal"><a href="products.html" class="btn-green">View Full Products</a></div></div></section><section class="certs"><div class="container"><div class="sec-head reveal"><p class="sec-label">Excellence</p><h2 class="sec-title">Our Certifications</h2></div><div class="cert-grid"><div class="c-card reveal"><img class="c-icon" src="./Assest/Home/Organic-Producer-Certification.png" alt="Certification icon"><h4>Organic Producer Certification</h4><p>USDA National Organic Program</p></div><div class="c-card reveal"><img class="c-icon" src="./Assest/Home/Certified-Crop Advisor-(CCA).png" alt="Certification icon"><h4>Certified Crop Advisor (CCA)</h4><p>American Society of Agronomy</p></div><div class="c-card reveal"><img class="c-icon" src="./Assest/Home/GlobalG.A.P-Certification.png" alt="Certification icon"><h4>GlobalG.A.P.</h4><p>GlobalG.A.P. c/o FoodPLUS GmbH</p></div><div class="c-card reveal"><img class="c-icon" src="./Assest/Home/Sustainable-Agriculture-Professional.png" alt="Certification icon"><h4>Sustainable Agriculture Professional</h4><p>Sustainable Agriculture Research and Education</p></div></div></div></section><div class="bottom-bar"><div class="newsletter reveal"><h3>Stay Updated</h3><p>Subscribe to our newsletter for the latest updates on spice market trends and our new harvests.</p><div class="nl-form"><input type="email" placeholder="Enter your email"><a href="#" class="btn-green">Subscribe</a></div></div><div class="ready reveal"><h3>Ready to Order?</h3><p>Contact us today for bulk orders and export inquiries.</p><a href="contact.html" class="btn-white">Get a Quote</a></div></div><footer class="footer"><div class="container"><div class="f-grid"><div class="f-brand"><div class="f-logo"><img class="f-logo-img" src="./Assest/Home/SML Logo.png" alt="Spice Masters International"><div class="f-logo-text"><span class="f-logo-name">Spice Masters International</span><span class="f-logo-slogan">Pure Spices, Healthy living</span></div></div><p>We are committed to delivering the finest quality spices to the world, sourced from the lush plantations of South India.</p><div class="f-social"><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none"/></svg></a><a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M4 4l16 16M20 4L4 20"/></svg></a><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1F4D2E"/></svg></a><a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a></div></div><div class="f-col"><h4>Quick Links</h4><ul><li><a href="Home.html">Home</a></li><li><a href="aboutus.html">About Us</a></li><li><a href="products.html">Products</a></li><li><a href="plantation.html">Plantation</a></li><li><a href="trading.html">Trading</a></li><li><a href="process.html">Quality Process</a></li><li><a href="contact.html">Contact Us</a></li></ul></div><div class="f-col"><h4>Products</h4><ul><li><a href="#">Premium Green Cardamom</a></li><li><a href="#">Indian Black Pepper</a></li><li><a href="#">Pure Forest Honey</a></li><li><a href="#">Premium Tea &amp; Coffee</a></li><li><a href="#">Premium Almond</a></li><li><a href="#">Premium Raisins</a></li></ul></div><div class="f-col"><h4>Get In Touch</h4><div class="f-addr"><strong>Spice Masters International</strong>Door No: 78, Ward No 28<br>Vennimalai Street, Bodinayakanur<br>Theni District – 625513<br>Tamilnadu, India<br><br><a href="/cdn-cgi/l/email-protection#2d44434b426d5e5d444e48404c5e59485f5e034443"><span class="__cf_email__" data-cfemail="f69f989099b685869f95939b978582938485d89f98">[email&#160;protected]</span></a><br><a href="tel:+919876543210">+91 98765 43210</a></div></div></div><div class="f-bottom"><p>© 2026 spicemasters.in. All Rights Reserved.</p><p>Pure Spices, Healthy Living</p></div></div></footer><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>// Navbar: transparent on hero, solid green on scroll
-    const nav = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    });
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Spice Masters International – Home</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --green: #1f4d2e;
+                --gold: #c9a227;
+                --dark: #1f2937;
+                --gray: #6b7280;
+                --light: #e5e7eb;
+                --sand: #f5f5f5;
+                --white: #ffffff;
+                --font-h: "Playfair Display", serif;
+                --font-b: "Open Sans", sans-serif;
+            }
+            *,
+            ::after,
+            ::before {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                font-family: var(--font-b);
+                color: var(--dark);
+                background: var(--white);
+                overflow-x: hidden;
+            }
+            img {
+                display: block;
+                max-width: 100%;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            ul {
+                list-style: none;
+            }
+            .container {
+                width: 100%;
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 0 48px;
+            }
+            .reveal {
+                opacity: 0;
+                transform: translateY(28px);
+                transition:
+                    opacity 0.65s ease,
+                    transform 0.65s ease;
+            }
+            .reveal.visible {
+                opacity: 1;
+                transform: none;
+            }
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 200;
+                background: 0 0;
+                box-shadow: none;
+                transition:
+                    background 0.4s ease,
+                    box-shadow 0.4s ease;
+            }
+            .navbar.scrolled {
+                background: var(--green);
+                box-shadow: 0 2px 24px rgba(0, 0, 0, 0.28);
+            }
+            .nav-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 80px;
+                padding: 0 48px;
+                max-width: 1440px;
+                margin: 0 auto;
+            }
+            .nav-logo {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                text-decoration: none;
+                flex-shrink: 0;
+            }
+            .nav-logo-img {
+                width: 54px;
+                height: 54px;
+                border-radius: 50%;
+                object-fit: cover;
+                flex-shrink: 0;
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                background: #fff;
+            }
+            .nav-logo-text {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+            }
+            .nav-logo-name {
+                font-family: var(--font-h);
+                font-size: 17px;
+                font-weight: 700;
+                color: #fff;
+                line-height: 1;
+                white-space: nowrap;
+            }
+            .nav-logo-slogan {
+                font-family: var(--font-b);
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--gold);
+                line-height: 1;
+                white-space: nowrap;
+            }
+            .nav-links {
+                display: flex;
+                gap: 2px;
+                align-items: center;
+            }
+            .nav-links a {
+                font-size: 13px;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.88);
+                letter-spacing: 0.3px;
+                padding: 6px 11px;
+                border-radius: 4px;
+                transition: color 0.2s;
+            }
+            .nav-links a.active,
+            .nav-links a:hover {
+                color: var(--gold);
+            }
+            .nav-btn {
+                font-size: 13px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.7px;
+                padding: 10px 22px;
+                border-radius: 5px;
+                background: var(--gold);
+                color: #fff;
+                transition: opacity 0.2s;
+                white-space: nowrap;
+            }
+            .nav-btn:hover {
+                opacity: 0.85;
+            }
+            .hamburger {
+                display: none;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+            }
+            .hamburger span {
+                display: block;
+                width: 24px;
+                height: 2px;
+                background: #fff;
+                border-radius: 2px;
+            }
+            .mobile-menu {
+                display: none;
+                flex-direction: column;
+                background: var(--green);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s;
+            }
+            .mobile-menu.open {
+                max-height: 480px;
+            }
+            .mobile-menu a {
+                padding: 13px 24px;
+                font-size: 14px;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.9);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .mobile-menu a:hover {
+                color: var(--gold);
+            }
+            .hero {
+                position: relative;
+                height: 100vh;
+                min-height: 580px;
+                overflow: hidden;
+                background: var(--green);
+            }
+            .hero-slide {
+                position: absolute;
+                inset: 0;
+                opacity: 0;
+                transition: opacity 1.2s ease;
+                display: flex;
+                align-items: center;
+            }
+            .hero-slide.active {
+                opacity: 1;
+            }
+            .hero-bg {
+                position: absolute;
+                inset: 0;
+                background-size: cover;
+                background-position: center;
+            }
+            .hero-bg::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(100deg, rgba(20, 50, 28, 0.82) 38%, rgba(20, 50, 28, 0.28) 100%);
+            }
+            .slide1 .hero-bg {
+                background-image: url(Assest/Home/hero-1.png);
+            }
+            .slide2 .hero-bg {
+                background-image: url(Assest/Home/Hero-2.png);
+            }
+            .hero-body {
+                position: relative;
+                z-index: 2;
+                padding: 0 80px;
+                max-width: 680px;
+            }
+            .hero-label {
+                font-size: 13px;
+                font-weight: 700;
+                color: var(--gold);
+                text-transform: uppercase;
+                letter-spacing: 0.7px;
+                margin-bottom: 14px;
+            }
+            .hero-title {
+                font-family: var(--font-h);
+                font-size: clamp(38px, 5.5vw, 72px);
+                font-weight: 700;
+                color: #fff;
+                line-height: 1.1;
+                margin-bottom: 18px;
+            }
+            .hero-sub {
+                font-size: 17px;
+                color: rgba(255, 255, 255, 0.82);
+                line-height: 1.7;
+                margin-bottom: 34px;
+            }
+            .hero-btns {
+                display: flex;
+                gap: 14px;
+                flex-wrap: wrap;
+            }
+            .btn-gold {
+                display: inline-block;
+                padding: 13px 28px;
+                background: var(--gold);
+                color: #fff;
+                font-size: 13px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.7px;
+                border-radius: 5px;
+                border: 2px solid var(--gold);
+                transition: 0.25s;
+            }
+            .btn-gold:hover {
+                background: 0 0;
+                color: var(--gold);
+            }
+            .btn-outline-w {
+                display: inline-block;
+                padding: 13px 28px;
+                background: 0 0;
+                color: #fff;
+                font-size: 13px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.7px;
+                border-radius: 5px;
+                border: 2px solid rgba(255, 255, 255, 0.7);
+                transition: 0.25s;
+            }
+            .btn-outline-w:hover {
+                background: #fff;
+                color: var(--green);
+            }
+            .hero-dots {
+                position: absolute;
+                bottom: 32px;
+                left: 80px;
+                z-index: 3;
+                display: flex;
+                gap: 8px;
+            }
+            .dot {
+                width: 9px;
+                height: 9px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.35);
+                cursor: pointer;
+                transition: 0.3s;
+                border: none;
+                padding: 0;
+            }
+            .dot.active {
+                background: var(--gold);
+                transform: scale(1.35);
+            }
+            .hero-cards {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            .h-card {
+                padding: 34px 48px;
+            }
+            .h-card.green {
+                background: var(--green);
+            }
+            .h-card.gold {
+                background: var(--gold);
+            }
+            .h-card h3 {
+                font-family: var(--font-h);
+                font-size: 22px;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 10px;
+            }
+            .h-card p {
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.78);
+                line-height: 1.75;
+                margin-bottom: 16px;
+            }
+            .h-card a {
+                font-size: 13px;
+                font-weight: 700;
+                color: #fff;
+                text-decoration: underline;
+                text-underline-offset: 3px;
+                transition: opacity 0.2s;
+            }
+            .h-card a:hover {
+                opacity: 0.7;
+            }
+            .about {
+                padding: 96px 0;
+            }
+            .about-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 72px;
+                align-items: stretch;
+            }
+            .about-img {
+                height: 100%;
+                display: flex;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            .about-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+            .sec-label {
+                font-size: 13px;
+                font-weight: 700;
+                color: var(--gold);
+                text-transform: uppercase;
+                letter-spacing: 0.7px;
+                margin-bottom: 10px;
+            }
+            .sec-title {
+                font-family: var(--font-h);
+                font-size: clamp(26px, 3.5vw, 42px);
+                font-weight: 700;
+                color: var(--dark);
+                line-height: 1.2;
+                margin-bottom: 16px;
+            }
+            .about-desc {
+                font-size: 15px;
+                color: var(--gray);
+                line-height: 1.85;
+                margin-bottom: 28px;
+            }
+            .feat-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                margin-bottom: 32px;
+            }
+            .feat {
+                padding: 18px;
+                background: var(--sand);
+                border-radius: 8px;
+                border-left: 3px solid var(--gold);
+                transition: transform 0.3s;
+            }
+            .feat:hover {
+                transform: translateY(-3px);
+            }
+            .feat h4 {
+                font-size: 14px;
+                font-weight: 700;
+                color: var(--dark);
+                margin-bottom: 6px;
+            }
+            .feat p {
+                font-size: 13px;
+                color: var(--gray);
+                line-height: 1.6;
+            }
+            .btn-green {
+                display: inline-block;
+                padding: 13px 32px;
+                background: var(--green);
+                color: #fff;
+                font-size: 13px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.7px;
+                border-radius: 5px;
+                border: 2px solid var(--green);
+                transition: 0.25s;
+            }
+            .btn-green:hover {
+                background: 0 0;
+                color: var(--green);
+            }
+            .process {
+                padding: 96px 0;
+                background: var(--white);
+            }
+            .sec-head {
+                text-align: center;
+                margin-bottom: 56px;
+            }
+            .sec-desc {
+                font-size: 15px;
+                color: var(--gray);
+                line-height: 1.7;
+                max-width: 680px;
+                margin: 14px auto 0;
+            }
+            .proc-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 28px;
+            }
+            .p-card {
+                background: var(--sand);
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                transition:
+                    transform 0.3s,
+                    box-shadow 0.3s;
+            }
+            .p-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            }
+            .p-img {
+                aspect-ratio: 16/9;
+                overflow: hidden;
+            }
+            .p-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s;
+            }
+            .p-card:hover .p-img img {
+                transform: scale(1.06);
+            }
+            .p-body {
+                padding: 20px;
+            }
+            .p-tag {
+                font-size: 11px;
+                font-weight: 700;
+                color: var(--gold);
+                text-transform: uppercase;
+                letter-spacing: 0.7px;
+                margin-bottom: 6px;
+            }
+            .p-title {
+                font-family: var(--font-h);
+                font-size: 17px;
+                font-weight: 700;
+                color: var(--dark);
+                margin-bottom: 8px;
+            }
+            .p-desc {
+                font-size: 13px;
+                color: var(--gray);
+                line-height: 1.65;
+            }
+            .proc-cta {
+                text-align: center;
+                margin-top: 44px;
+            }
+            .products {
+                padding: 96px 0;
+                background: var(--sand);
+            }
+            .prod-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 28px;
+            }
+            .pr-card {
+                background: #fff;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+                transition:
+                    transform 0.3s,
+                    box-shadow 0.3s;
+            }
+            .pr-card:hover {
+                transform: translateY(-7px);
+                box-shadow: 0 12px 36px rgba(0, 0, 0, 0.13);
+            }
+            .pr-img {
+                overflow: hidden;
+                aspect-ratio: 1;
+            }
+            .pr-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s;
+            }
+            .pr-card:hover .pr-img img {
+                transform: scale(1.07);
+            }
+            .pr-body {
+                padding: 22px;
+            }
+            .pr-body h3 {
+                font-family: var(--font-h);
+                font-size: 18px;
+                font-weight: 700;
+                color: var(--dark);
+                margin-bottom: 8px;
+                line-height: 1.3;
+            }
+            .pr-body p {
+                font-size: 13px;
+                color: var(--gray);
+                line-height: 1.7;
+                margin-bottom: 18px;
+            }
+            .btn-outline-gold {
+                display: inline-block;
+                padding: 10px 22px;
+                background: 0 0;
+                color: var(--gold);
+                font-size: 13px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.7px;
+                border-radius: 5px;
+                border: 2px solid var(--gold);
+                transition: 0.25s;
+            }
+            .btn-outline-gold:hover {
+                background: var(--gold);
+                color: #fff;
+            }
+            .certs {
+                padding: 80px 0;
+                background: var(--green);
+            }
+            .certs .sec-head .sec-label {
+                color: var(--gold);
+            }
+            .certs .sec-head .sec-title {
+                color: #fff;
+            }
+            .cert-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 24px;
+            }
+            .c-card {
+                background: #fff;
+                border: 1px solid var(--light);
+                border-radius: 10px;
+                padding: 28px 20px;
+                text-align: center;
+                transition:
+                    box-shadow 0.3s,
+                    transform 0.3s;
+            }
+            .c-card:hover {
+                box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+                transform: translateY(-4px);
+            }
+            .c-icon {
+                width: 60px;
+                height: 60px;
+                object-fit: contain;
+                margin: 0 auto 14px;
+                display: block;
+            }
+            .c-card h4 {
+                font-size: 14px;
+                font-weight: 700;
+                color: var(--dark);
+                margin-bottom: 6px;
+                line-height: 1.3;
+            }
+            .c-card p {
+                font-size: 12px;
+                color: var(--gray);
+                line-height: 1.6;
+            }
+            .bottom-bar {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            .newsletter {
+                padding: 56px 64px;
+                background: var(--white);
+                border-top: 1px solid var(--light);
+            }
+            .newsletter h3 {
+                font-family: var(--font-h);
+                font-size: 26px;
+                font-weight: 700;
+                color: var(--dark);
+                margin-bottom: 10px;
+            }
+            .newsletter p {
+                font-size: 14px;
+                color: var(--gray);
+                line-height: 1.7;
+                margin-bottom: 22px;
+            }
+            .nl-form {
+                display: flex;
+                gap: 10px;
+            }
+            .nl-form input {
+                flex: 1;
+                padding: 12px 16px;
+                border: 1px solid var(--light);
+                border-radius: 5px;
+                font-family: var(--font-b);
+                font-size: 14px;
+                outline: 0;
+                transition: border-color 0.2s;
+            }
+            .nl-form input:focus {
+                border-color: var(--green);
+            }
+            .ready {
+                padding: 56px 64px;
+                background: var(--gold);
+            }
+            .ready h3 {
+                font-family: var(--font-h);
+                font-size: 26px;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 10px;
+            }
+            .ready p {
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.85);
+                line-height: 1.7;
+                margin-bottom: 24px;
+            }
+            .btn-white {
+                display: inline-block;
+                padding: 12px 28px;
+                background: #fff;
+                color: var(--gold);
+                font-size: 13px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.7px;
+                border-radius: 5px;
+                border: 2px solid #fff;
+                transition: 0.25s;
+            }
+            .btn-white:hover {
+                background: 0 0;
+                color: #fff;
+            }
+            .footer {
+                background: var(--green);
+                color: #fff;
+                padding: 60px 0 28px;
+            }
+            .f-grid {
+                display: grid;
+                grid-template-columns: 1.8fr 1fr 1fr 1.5fr;
+                gap: 44px;
+                margin-bottom: 44px;
+            }
+            .f-logo {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                margin-bottom: 16px;
+            }
+            .f-logo-img {
+                width: 54px;
+                height: 54px;
+                border-radius: 50%;
+                object-fit: cover;
+                flex-shrink: 0;
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                background: #fff;
+            }
+            .f-logo-text {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+            }
+            .f-logo-name {
+                font-family: var(--font-h);
+                font-size: 17px;
+                font-weight: 700;
+                color: #fff;
+                line-height: 1;
+                white-space: nowrap;
+            }
+            .f-logo-slogan {
+                font-family: var(--font-b);
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--gold);
+                line-height: 1;
+                white-space: nowrap;
+            }
+            .f-brand p {
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.6);
+                line-height: 1.85;
+                margin-bottom: 20px;
+            }
+            .f-social {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+            .f-social a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 34px;
+                height: 34px;
+                border-radius: 7px;
+                background: rgba(255, 255, 255, 0.12);
+                border: 1px solid rgba(255, 255, 255, 0.22);
+                transition:
+                    background 0.2s,
+                    border-color 0.2s,
+                    transform 0.2s;
+            }
+            .f-social a:hover {
+                background: var(--gold);
+                border-color: var(--gold);
+                transform: translateY(-3px);
+            }
+            .f-social a svg {
+                width: 15px;
+                height: 15px;
+                display: block;
+            }
+            .f-col h4 {
+                font-size: 12px;
+                font-weight: 700;
+                color: var(--gold);
+                text-transform: uppercase;
+                letter-spacing: 0.7px;
+                margin-bottom: 18px;
+            }
+            .f-col ul li {
+                margin-bottom: 10px;
+            }
+            .f-col ul li a {
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.65);
+                transition: color 0.2s;
+            }
+            .f-col ul li a:hover {
+                color: var(--gold);
+            }
+            .f-addr {
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.65);
+                line-height: 2.1;
+            }
+            .f-addr strong {
+                color: #fff;
+                display: block;
+                margin-bottom: 2px;
+            }
+            .f-addr a {
+                color: rgba(255, 255, 255, 0.65);
+                transition: color 0.2s;
+            }
+            .f-addr a:hover {
+                color: var(--gold);
+            }
+            .f-bottom {
+                border-top: 1px solid rgba(255, 255, 255, 0.12);
+                padding-top: 24px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .f-bottom p {
+                font-size: 12px;
+                color: rgba(255, 255, 255, 0.4);
+            }
+            @media (max-width: 1100px) {
+                .nav-links a {
+                    font-size: 12px;
+                    padding: 5px 8px;
+                }
+                .nav-logo-name {
+                    font-size: 15px;
+                }
+            }
+            @media (max-width: 1024px) {
+                .proc-grid,
+                .prod-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+                .cert-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+                .f-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+                .bottom-bar {
+                    grid-template-columns: 1fr;
+                }
+            }
+            @media (max-width: 768px) {
+                .container {
+                    padding: 0 20px;
+                }
+                .nav-inner {
+                    padding: 0 20px;
+                }
+                .nav-btn,
+                .nav-links {
+                    display: none;
+                }
+                .hamburger {
+                    display: flex;
+                }
+                .mobile-menu {
+                    display: flex;
+                }
+                .hero-body {
+                    padding: 0 24px;
+                }
+                .hero-dots {
+                    left: 24px;
+                }
+                .hero-cards {
+                    grid-template-columns: 1fr;
+                }
+                .about-grid {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+                .feat-grid {
+                    grid-template-columns: 1fr;
+                }
+                .proc-grid,
+                .prod-grid {
+                    grid-template-columns: 1fr;
+                }
+                .newsletter,
+                .ready {
+                    padding: 40px 24px;
+                }
+                .f-grid {
+                    grid-template-columns: 1fr;
+                    gap: 28px;
+                }
+                .nl-form {
+                    flex-direction: column;
+                }
+                .nav-logo-name {
+                    font-size: 14px;
+                }
+                .f-logo-name {
+                    font-size: 15px;
+                }
+            }
+            @media (max-width: 480px) {
+                .hero-btns {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                .cert-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+                .f-logo-slogan,
+                .nav-logo-slogan {
+                    font-size: 11px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar" id="navbar">
+            <div class="nav-inner">
+                <a href="Home.html" class="nav-logo"
+                    ><img class="nav-logo-img" src="./Assest/Home/SML Logo.png" alt="Spice Masters International" />
+                    <div class="nav-logo-text">
+                        <span class="nav-logo-name">Spice Masters International</span
+                        ><span class="nav-logo-slogan">Pure Spices, Healthy living</span>
+                    </div></a
+                >
+                <ul class="nav-links">
+                    <li><a href="Home.html" class="active">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="plantation.html">Plantation</a></li>
+                    <li><a href="trading.html">Trading</a></li>
+                    <li><a href="process.html">Quality Process</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+                <a href="contact.html" class="nav-btn">Get In Touch</a>
+                <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="Home.html">Home</a><a href="aboutus.html">About Us</a><a href="products.html">Products</a
+                ><a href="plantation.html">Plantation</a><a href="trading.html">Trading</a
+                ><a href="process.html">Quality Process</a><a href="contact.html">Contact Us</a>
+            </div>
+        </nav>
+        <section class="hero">
+            <div class="hero-slide slide1 active">
+                <div class="hero-bg"></div>
+                <div class="hero-body">
+                    <p class="hero-label">Green Cardamom Plantation</p>
+                    <h1 class="hero-title">The Queen<br />of Spices</h1>
+                    <p class="hero-sub">Direct from the evergreen forests of the Western Ghats</p>
+                    <div class="hero-btns">
+                        <a href="plantation.html" class="btn-gold">Explore</a
+                        ><a href="contact.html" class="btn-outline-w">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide slide2">
+                <div class="hero-bg"></div>
+                <div class="hero-body">
+                    <p class="hero-label">Green Cardamom Trading</p>
+                    <h1 class="hero-title">Agri Commodity<br />Excellence</h1>
+                    <p class="hero-sub">Premium quality spices for global markets</p>
+                    <div class="hero-btns">
+                        <a href="products.html" class="btn-gold">Products</a
+                        ><a href="contact.html" class="btn-outline-w">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-dots">
+                <div class="dot active" onclick="goSlide(0)"></div>
+                <div class="dot" onclick="goSlide(1)"></div>
+            </div>
+        </section>
+        <div class="hero-cards">
+            <div class="h-card green reveal">
+                <h3>Cardamom Plantation</h3>
+                <p>
+                    Spices is native to the evergreen forests of South India. Cultivated with care across our own
+                    managed farms for superior quality.
+                </p>
+                <a href="plantation.html">Read More →</a>
+            </div>
+            <div class="h-card gold reveal">
+                <h3>Cardamom Trading</h3>
+                <p>
+                    Nadu, the heart of cardamom cultivation. We trade directly ensuring freshness and premium quality to
+                    buyers worldwide.
+                </p>
+                <a href="trading.html">Read More →</a>
+            </div>
+        </div>
+        <section class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-img reveal">
+                        <img src="./Assest/Home/Home-About-us-img.jpg" alt="Spice Masters International facility" />
+                    </div>
+                    <div class="about-content reveal">
+                        <p class="sec-label">About Us</p>
+                        <h2 class="sec-title">Spice Masters<br />International</h2>
+                        <p class="about-desc">
+                            is Indian Green Cardamom and Black Pepper exporter, manufacturer, producer &amp; supplier
+                            from Bodinayakanur, Tamilnadu, India Since 2016. We are committed to delivering the finest
+                            quality spices to the world.
+                        </p>
+                        <div class="feat-grid">
+                            <div class="feat">
+                                <h4>🌿 Organic Transitioning</h4>
+                                <p>It helps to maintain environment health by reducing the level of pollution.</p>
+                            </div>
+                            <div class="feat">
+                                <h4>🏆 Award Winning</h4>
+                                <p>Recognized by Tamil Nadu Agriculture University &amp; Spice Expo 2022.</p>
+                            </div>
+                        </div>
+                        <a href="about.html" class="btn-green">Learn More About Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="process">
+            <div class="container">
+                <div class="sec-head reveal">
+                    <p class="sec-label">Procurement</p>
+                    <h2 class="sec-title">Our Process</h2>
+                    <p class="sec-desc">
+                        We procure raw spices like cardamom and pepper directly from farmers to ensure that whenever
+                        anyone uses our spices, they always use fresh spices in food preparations.
+                    </p>
+                </div>
+                <div class="proc-grid">
+                    <div class="p-card reveal">
+                        <div class="p-img">
+                            <img src="./Assest/Home/Raw-Material -Inspection.png" alt="Raw Material Inspection" />
+                        </div>
+                        <div class="p-body">
+                            <p class="p-tag">Quality Check</p>
+                            <h3 class="p-title">Raw Material Inspection</h3>
+                            <p class="p-desc">Ensuring quality from the very beginning.</p>
+                        </div>
+                    </div>
+                    <div class="p-card reveal">
+                        <div class="p-img">
+                            <img src="./Assest/Home/In-Process-Quality-Checks.png" alt="In-Process Quality Checks" />
+                        </div>
+                        <div class="p-body">
+                            <p class="p-tag">Quality Check</p>
+                            <h3 class="p-title">In-Process Quality Checks</h3>
+                            <p class="p-desc">Continuous monitoring for consistent quality.</p>
+                        </div>
+                    </div>
+                    <div class="p-card reveal">
+                        <div class="p-img">
+                            <img src="./Assest/Home/Final-Product-Testing.png" alt="Final Product Testing" />
+                        </div>
+                        <div class="p-body">
+                            <p class="p-tag">Quality Check</p>
+                            <h3 class="p-title">Final Product Testing</h3>
+                            <p class="p-desc">Rigorous testing for ultimate reliability.</p>
+                        </div>
+                    </div>
+                    <div class="p-card reveal">
+                        <div class="p-img">
+                            <img src="./Assest/Home/Packaging-Verification.png" alt="Packaging Verification" />
+                        </div>
+                        <div class="p-body">
+                            <p class="p-tag">Quality Check</p>
+                            <h3 class="p-title">Packaging &amp; Labeling Verification</h3>
+                            <p class="p-desc">Protecting your product, inside and out.</p>
+                        </div>
+                    </div>
+                    <div class="p-card reveal">
+                        <div class="p-img"><img src="./Assest/Home/Post-Production.png" alt="Post Production" /></div>
+                        <div class="p-body">
+                            <p class="p-tag">Quality Check</p>
+                            <h3 class="p-title">Post-Production Audit &amp; Feedback</h3>
+                            <p class="p-desc">Learning and improving for future excellence.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="proc-cta reveal"><a href="contact.html" class="btn-green">Contact Us For Details</a></div>
+            </div>
+        </section>
+        <section class="products">
+            <div class="container">
+                <div class="sec-head reveal">
+                    <p class="sec-label">Our Products</p>
+                    <h2 class="sec-title">Premium Spices</h2>
+                    <p class="sec-desc">
+                        We offer a range of premium spices and natural products sourced directly from trusted farmers
+                        and plantations.
+                    </p>
+                </div>
+                <div class="prod-grid">
+                    <div class="pr-card reveal">
+                        <div class="pr-img">
+                            <img src="./Assest/Home/Green-Cardamom Pods.png" alt="Premium Green Cardamom Pods" />
+                        </div>
+                        <div class="pr-body">
+                            <h3>Premium Green Cardamom Pods</h3>
+                            <p>
+                                Sweet, citrusy notes. Perfect for both sweet and savoury dishes. Handpicked from the
+                                finest plantations of the Western Ghats.
+                            </p>
+                            <a href="product-details.html" class="btn-outline-gold">View Details</a>
+                        </div>
+                    </div>
+                    <div class="pr-card reveal">
+                        <div class="pr-img">
+                            <img src="./Assest/Home/Malabar-Black-Pepper.png" alt="Malabar Black Pepper Whole" />
+                        </div>
+                        <div class="pr-body">
+                            <h3>Malabar Black Pepper Whole</h3>
+                            <p>
+                                Bold and pungent whole black peppercorns from the Malabar coast, offering a robust
+                                flavor and a warm, spicy kick. Ideal for grinding fresh over any dish.
+                            </p>
+                            <a href="product-details.html" class="btn-outline-gold">View Details</a>
+                        </div>
+                    </div>
+                    <div class="pr-card reveal">
+                        <div class="pr-img"><img src="./Assest/Home/Forest-Honey.jpg" alt="Pure Forest Honey" /></div>
+                        <div class="pr-body">
+                            <h3>Pure Forest Honey</h3>
+                            <p>
+                                Raw, unprocessed forest honey harvested from the pristine Western Ghats. Rich in natural
+                                enzymes, antioxidants, and authentic floral notes.
+                            </p>
+                            <a href="product-details.html" class="btn-outline-gold">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="proc-cta reveal"><a href="products.html" class="btn-green">View Full Products</a></div>
+            </div>
+        </section>
+        <section class="certs">
+            <div class="container">
+                <div class="sec-head reveal">
+                    <p class="sec-label">Excellence</p>
+                    <h2 class="sec-title">Our Certifications</h2>
+                </div>
+                <div class="cert-grid">
+                    <div class="c-card reveal">
+                        <img
+                            class="c-icon"
+                            src="./Assest/Home/Organic-Producer-Certification.png"
+                            alt="Certification icon"
+                        />
+                        <h4>Organic Producer Certification</h4>
+                        <p>USDA National Organic Program</p>
+                    </div>
+                    <div class="c-card reveal">
+                        <img
+                            class="c-icon"
+                            src="./Assest/Home/Certified-Crop Advisor-(CCA).png"
+                            alt="Certification icon"
+                        />
+                        <h4>Certified Crop Advisor (CCA)</h4>
+                        <p>American Society of Agronomy</p>
+                    </div>
+                    <div class="c-card reveal">
+                        <img
+                            class="c-icon"
+                            src="./Assest/Home/GlobalG.A.P-Certification.png"
+                            alt="Certification icon"
+                        />
+                        <h4>GlobalG.A.P.</h4>
+                        <p>GlobalG.A.P. c/o FoodPLUS GmbH</p>
+                    </div>
+                    <div class="c-card reveal">
+                        <img
+                            class="c-icon"
+                            src="./Assest/Home/Sustainable-Agriculture-Professional.png"
+                            alt="Certification icon"
+                        />
+                        <h4>Sustainable Agriculture Professional</h4>
+                        <p>Sustainable Agriculture Research and Education</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="bottom-bar">
+            <div class="newsletter reveal">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest updates on spice market trends and our new harvests.</p>
+                <div class="nl-form">
+                    <input type="email" placeholder="Enter your email" /><a href="#" class="btn-green">Subscribe</a>
+                </div>
+            </div>
+            <div class="ready reveal">
+                <h3>Ready to Order?</h3>
+                <p>Contact us today for bulk orders and export inquiries.</p>
+                <a href="contact.html" class="btn-white">Get a Quote</a>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="f-grid">
+                    <div class="f-brand">
+                        <div class="f-logo">
+                            <img
+                                class="f-logo-img"
+                                src="./Assest/Home/SML Logo.png"
+                                alt="Spice Masters International"
+                            />
+                            <div class="f-logo-text">
+                                <span class="f-logo-name">Spice Masters International</span
+                                ><span class="f-logo-slogan">Pure Spices, Healthy living</span>
+                            </div>
+                        </div>
+                        <p>
+                            We are committed to delivering the finest quality spices to the world, sourced from the lush
+                            plantations of South India.
+                        </p>
+                        <div class="f-social">
+                            <a href="#" aria-label="Facebook"
+                                ><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                                    /></svg></a
+                            ><a href="#" aria-label="Instagram"
+                                ><svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="#fff"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                    <circle cx="12" cy="12" r="4" />
+                                    <circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none" /></svg></a
+                            ><a href="#" aria-label="X / Twitter"
+                                ><svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="#fff"
+                                    stroke-width="2.2"
+                                    stroke-linecap="round"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path d="M4 4l16 16M20 4L4 20" /></svg></a
+                            ><a href="#" aria-label="LinkedIn"
+                                ><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect x="2" y="9" width="4" height="12" />
+                                    <circle cx="4" cy="4" r="2" /></svg></a
+                            ><a href="#" aria-label="YouTube"
+                                ><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"
+                                    />
+                                    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1F4D2E" /></svg></a
+                            ><a href="#" aria-label="WhatsApp"
+                                ><svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="#fff"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                                    /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <div class="f-col">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="Home.html">Home</a></li>
+                            <li><a href="aboutus.html">About Us</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a href="plantation.html">Plantation</a></li>
+                            <li><a href="trading.html">Trading</a></li>
+                            <li><a href="process.html">Quality Process</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="f-col">
+                        <h4>Products</h4>
+                        <ul>
+                            <li><a href="#">Premium Green Cardamom</a></li>
+                            <li><a href="#">Indian Black Pepper</a></li>
+                            <li><a href="#">Pure Forest Honey</a></li>
+                            <li><a href="#">Premium Tea &amp; Coffee</a></li>
+                            <li><a href="#">Premium Almond</a></li>
+                            <li><a href="#">Premium Raisins</a></li>
+                        </ul>
+                    </div>
+                    <div class="f-col">
+                        <h4>Get In Touch</h4>
+                        <div class="f-addr">
+                            <strong>Spice Masters International</strong>Door No: 78, Ward No 28<br />Vennimalai Street,
+                            Bodinayakanur<br />Theni District – 625513<br />Tamilnadu, India<br /><br /><a
+                                href="/cdn-cgi/l/email-protection#2d44434b426d5e5d444e48404c5e59485f5e034443"
+                                ><span class="__cf_email__" data-cfemail="f69f989099b685869f95939b978582938485d89f98"
+                                    >[email&#160;protected]</span
+                                ></a
+                            ><br /><a href="tel:+919876543210">+91 98765 43210</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="f-bottom">
+                    <p>© 2026 spicemasters.in. All Rights Reserved.</p>
+                    <p>Pure Spices, Healthy Living</p>
+                </div>
+            </div>
+        </footer>
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script>
+            // Navbar: transparent on hero, solid green on scroll
+            const nav = document.getElementById("navbar");
+            window.addEventListener("scroll", () => {
+                nav.classList.toggle("scrolled", window.scrollY > 60);
+            });
 
-    // Mobile menu toggle
-    function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('open');
-    }
+            // Mobile menu toggle
+            function toggleMenu() {
+                document.getElementById("mobileMenu").classList.toggle("open");
+            }
 
-    // Hero slider
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots   = document.querySelectorAll('.dot');
-    let cur = 0, timer;
-    function goSlide(n) {
-      slides[cur].classList.remove('active');
-      dots[cur].classList.remove('active');
-      cur = n;
-      slides[cur].classList.add('active');
-      dots[cur].classList.add('active');
-      clearInterval(timer);
-      timer = setInterval(() => goSlide((cur + 1) % slides.length), 5500);
-    }
-    timer = setInterval(() => goSlide((cur + 1) % slides.length), 5500);
+            // Hero slider
+            const slides = document.querySelectorAll(".hero-slide");
+            const dots = document.querySelectorAll(".dot");
+            let cur = 0,
+                timer;
+            function goSlide(n) {
+                slides[cur].classList.remove("active");
+                dots[cur].classList.remove("active");
+                cur = n;
+                slides[cur].classList.add("active");
+                dots[cur].classList.add("active");
+                clearInterval(timer);
+                timer = setInterval(() => goSlide((cur + 1) % slides.length), 5500);
+            }
+            timer = setInterval(() => goSlide((cur + 1) % slides.length), 5500);
 
-    // Scroll reveal
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));</script></body></html>
+            // Scroll reveal
+            const obs = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting) {
+                            e.target.classList.add("visible");
+                            obs.unobserve(e.target);
+                        }
+                    });
+                },
+                { threshold: 0.12 }
+            );
+            document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+        </script>
+    </body>
+</html>
