@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plantation – Spice Masters International</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:  #1F4D2E;
+      --gold:   #C9A227;
+      --dark:   #1F2937;
+      --gray:   #6B7280;
+      --light:  #E5E7EB;
+      --sand:   #F5F5F5;
+      --white:  #FFFFFF;
+      --font-h: 'Playfair Display', serif;
+      --font-b: 'Open Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); color: var(--dark); background: var(--white); overflow-x: hidden; }
+    img  { display: block; max-width: 100%; }
+    a    { text-decoration: none; color: inherit; }
+    ul   { list-style: none; }
+    .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ══════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════ */
+    .navbar {
+      position: fixed; top: 0; left: 0; width: 100%;
+      z-index: 200;
+      background: var(--green);
+      box-shadow: 0 2px 24px rgba(0,0,0,.28);
+      transition: background .4s ease, box-shadow .4s ease;
+    }
+    .navbar.scrolled { background: var(--green); box-shadow: 0 2px 24px rgba(0,0,0,.28); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 80px; padding: 0 48px;
+      max-width: 1440px; margin: 0 auto;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; flex-shrink: 0; }
+    .nav-logo-img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid rgba(255,255,255,.3); background: #fff; }
+    .nav-logo-text { display: flex; flex-direction: column; gap: 3px; }
+    .nav-logo-name { font-family: var(--font-h); font-size: 17px; font-weight: 700; color: #fff; line-height: 1; white-space: nowrap; }
+    .nav-logo-slogan { font-family: var(--font-b); font-size: 13px; font-weight: 600; color: var(--gold); line-height: 1; white-space: nowrap; }
+    .nav-links { display: flex; gap: 2px; align-items: center; }
+    .nav-links a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.88); letter-spacing: .3px; padding: 6px 11px; border-radius: 4px; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-btn { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; padding: 10px 22px; border-radius: 5px; background: var(--gold); color: #fff; transition: opacity .2s; white-space: nowrap; }
+    .nav-btn:hover { opacity: .85; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-menu { display: none; flex-direction: column; background: var(--green); max-height: 0; overflow: hidden; transition: max-height .4s; }
+    .mobile-menu.open { max-height: 480px; }
+    .mobile-menu a { padding: 13px 24px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,.9); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* ══════════════════════════════════════
+       PAGE HERO BANNER
+    ══════════════════════════════════════ */
+    .page-hero {
+      position: relative; height: 420px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+      margin-top: 80px;
+    }
+    .page-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1600&q=80');
+      background-size: cover; background-position: center;
+    }
+    .page-hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(20,50,28,.82) 0%, rgba(20,50,28,.66) 100%);
+    }
+    .page-hero-body { position: relative; z-index: 2; padding: 0 24px; }
+    .page-hero-breadcrumb { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.7); margin-bottom: 14px; letter-spacing: .3px; }
+    .page-hero-breadcrumb a { color: var(--gold); }
+    .page-hero-breadcrumb span { margin: 0 8px; }
+    .page-hero h1 { font-family: var(--font-h); font-size: clamp(36px,5vw,60px); font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 14px; }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,.82); line-height: 1.7; max-width: 620px; margin: 0 auto; }
+    .page-hero-label { font-size: 13px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .7px; margin-bottom: 12px; }
+
+    /* ══════════════════════════════════════
+       SHARED UTILITIES
+    ══════════════════════════════════════ */
+    .sec-label { font-size: 13px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .7px; margin-bottom: 10px; }
+    .sec-title { font-family: var(--font-h); font-size: clamp(26px,3.5vw,42px); font-weight: 700; color: var(--dark); line-height: 1.2; margin-bottom: 16px; }
+    .sec-head { text-align: center; margin-bottom: 48px; }
+    .sec-desc { font-size: 15px; color: var(--gray); line-height: 1.75; max-width: 760px; margin: 0 auto; }
+    .btn-green { display: inline-block; padding: 10px 24px; background: var(--green); color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; border-radius: 5px; border: 2px solid var(--green); transition: .25s; }
+    .btn-green:hover { background: transparent; color: var(--green); }
+    .btn-gold { display: inline-block; padding: 12px 32px; background: var(--gold); color: #fff; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; border-radius: 5px; border: 2px solid var(--gold); transition: .25s; }
+    .btn-gold:hover { background: transparent; color: var(--gold); }
+    .btn-white { display: inline-block; padding: 13px 36px; background: #fff; color: var(--green); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; border-radius: 5px; border: 2px solid #fff; transition: .25s; }
+    .btn-white:hover { background: transparent; color: #fff; }
+
+    /* ══════════════════════════════════════
+       INTRODUCTION SECTION
+    ══════════════════════════════════════ */
+    .intro-section { padding: 80px 0 72px; background: var(--white); text-align: center; }
+    .intro-section h2 { font-family: var(--font-h); font-size: clamp(28px,3.5vw,44px); font-weight: 700; color: var(--dark); margin-bottom: 20px; }
+    .intro-section p { font-size: 15px; color: var(--gray); line-height: 1.85; max-width: 860px; margin: 0 auto; }
+
+    /* ══════════════════════════════════════
+       STAGE SECTION (Processing / Harvesting)
+    ══════════════════════════════════════ */
+    .stage-section { padding: 64px 0 80px; background: var(--white); }
+    .stage-head { text-align: center; margin-bottom: 48px; }
+    .stage-head .sec-label { display: block; }
+    .stage-head h2 { font-family: var(--font-h); font-size: clamp(28px,3.5vw,44px); font-weight: 700; color: var(--dark); margin-bottom: 16px; }
+    .stage-head p { font-size: 15px; color: var(--gray); line-height: 1.75; max-width: 700px; margin: 0 auto; }
+
+    /* Stage cards grid — 3 col, with 4th card centred below */
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 28px;
+    }
+    .stage-grid-bottom {
+      display: flex;
+      justify-content: flex-start;
+      gap: 28px;
+    }
+    .stage-grid-bottom .stage-card {
+      width: calc((100% - 56px) / 3);
+    }
+
+    .stage-card {
+      background: var(--white);
+      border: 1px solid var(--light);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .stage-card:hover { transform: translateY(-6px); box-shadow: 0 16px 44px rgba(0,0,0,.10); }
+    .stage-img-wrap { position: relative; height: 200px; overflow: hidden; }
+    .stage-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .stage-card:hover .stage-img-wrap img { transform: scale(1.05); }
+    .stage-badge {
+      position: absolute; top: 12px; left: 12px;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--gold); color: #fff;
+      font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .stage-body { padding: 18px 20px 22px; }
+    .stage-body h4 { font-family: var(--font-h); font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.3; }
+    .stage-body p { font-size: 13px; color: var(--gray); line-height: 1.7; }
+
+    /* ══════════════════════════════════════
+       CTA SECTION
+    ══════════════════════════════════════ */
+    .cta-section { padding: 0 0 80px; background: var(--white); }
+    .cta-card {
+      background: linear-gradient(135deg, var(--green) 0%, #2a6b3c 50%, #1a4026 100%);
+      border-radius: 20px; padding: 80px 64px; text-align: center;
+      position: relative; overflow: hidden;
+      box-shadow: 0 20px 64px rgba(31,77,46,.30);
+    }
+    .cta-card::before, .cta-card::after {
+      content: ''; position: absolute; border-radius: 50%;
+      background: rgba(255,255,255,.07); pointer-events: none;
+    }
+    .cta-card::before { width: 220px; height: 220px; top: -70px; right: -70px; }
+    .cta-card::after  { width: 180px; height: 180px; bottom: -55px; left: -55px; }
+    .cta-card h2 { font-family: var(--font-h); font-size: clamp(26px,3.5vw,40px); font-weight: 700; color: #fff; margin-bottom: 16px; position: relative; }
+    .cta-card p  { font-size: 16px; color: rgba(255,255,255,.82); line-height: 1.75; max-width: 560px; margin: 0 auto 36px; position: relative; }
+    .cta-card .btn-gold { position: relative; }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    .footer { background: var(--green); color: #fff; padding: 60px 0 28px; }
+    .f-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.5fr; gap: 44px; margin-bottom: 44px; }
+    .f-logo { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .f-logo-img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid rgba(255,255,255,.3); background: #fff; }
+    .f-logo-text { display: flex; flex-direction: column; gap: 3px; }
+    .f-logo-name { font-family: var(--font-h); font-size: 17px; font-weight: 700; color: #fff; line-height: 1; white-space: nowrap; }
+    .f-logo-slogan { font-family: var(--font-b); font-size: 13px; font-weight: 600; color: var(--gold); line-height: 1; white-space: nowrap; }
+    .f-brand p { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.85; margin-bottom: 20px; }
+    .f-social { display: flex; gap: 8px; flex-wrap: wrap; }
+    .f-social a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 7px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); transition: background .2s, border-color .2s, transform .2s; }
+    .f-social a:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-3px); }
+    .f-social a svg { width: 15px; height: 15px; display: block; }
+    .f-col h4 { font-size: 12px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .7px; margin-bottom: 18px; }
+    .f-col ul li { margin-bottom: 10px; }
+    .f-col ul li a { font-size: 13px; color: rgba(255,255,255,.65); transition: color .2s; }
+    .f-col ul li a:hover { color: var(--gold); }
+    .f-addr { font-size: 13px; color: rgba(255,255,255,.65); line-height: 2.1; }
+    .f-addr strong { color: #fff; display: block; margin-bottom: 2px; }
+    .f-addr a { color: rgba(255,255,255,.65); transition: color .2s; }
+    .f-addr a:hover { color: var(--gold); }
+    .f-bottom { border-top: 1px solid rgba(255,255,255,.12); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .f-bottom p { font-size: 12px; color: rgba(255,255,255,.4); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .nav-links a { font-size: 12px; padding: 5px 8px; }
+      .nav-logo-name { font-size: 15px; }
+    }
+    @media (max-width: 1024px) {
+      .stage-grid { grid-template-columns: 1fr 1fr; }
+      .stage-grid-bottom .stage-card { width: calc((100% - 28px) / 2); }
+      .f-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .nav-inner { padding: 0 20px; }
+      .nav-links, .nav-btn { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+      .stage-grid { grid-template-columns: 1fr; }
+      .stage-grid-bottom { flex-direction: column; }
+      .stage-grid-bottom .stage-card { width: 100%; }
+      .f-grid { grid-template-columns: 1fr; gap: 28px; }
+      .page-hero { height: 320px; }
+      .cta-card { padding: 56px 28px; border-radius: 14px; }
+      .nav-logo-name { font-size: 14px; }
+    }
+    @media (max-width: 580px) {
+      .nav-logo-slogan, .f-logo-slogan { font-size: 11px; }
+      .cta-card { padding: 48px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img class="nav-logo-img"
+             src="./Assest/Plantation/SML Logo.png"
+             alt="Spice Masters International" />
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Spice Masters International</span>
+          <span class="nav-logo-slogan">Pure Spices, Healthy living</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="plantation.html" class="active">Plantation</a></li>
+        <li><a href="trading.html">Trading</a></li>
+        <li><a href="quality-process.html">Quality Process</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+
+      <a href="contact.html" class="nav-btn">Get In Touch</a>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="Home.html">Home</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="plantation.html">Plantation</a>
+      <a href="trading.html">Trading</a>
+      <a href="quality-process.html">Quality Process</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       PAGE HERO BANNER
+  ══════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-body">
+      <p class="page-hero-label">Our Plantation</p>
+      <p class="page-hero-breadcrumb">
+        <a href="Home.html">Home</a>
+        <span>/</span>
+        Plantation
+      </p>
+      <h1>Cardamom Plantation</h1>
+      <p>Naturally grown spices from the heart of South India's verdant landscapes</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       INTRODUCTION
+  ══════════════════════════════════════ -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="reveal">
+        <h2>Introduction</h2>
+        <p>Cardamom (<em>Elettaria cardamomum</em> L.) popularly known as Queen of Spices is native to the evergreen rainy forests of Western Ghats in South India. It is cultivated in Kerala, Karnataka and Tamil Nadu. Cardamom is used for flavouring various preparations of food, confectionery, beverages, Perfumes, Medicines and liquors.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PROCESSING SECTION — Growth Stages
+  ══════════════════════════════════════ -->
+  <section class="stage-section">
+    <div class="container">
+      <div class="stage-head reveal">
+        <span class="sec-label">Procurement</span>
+        <h2>Processing</h2>
+        <p>Processing of cardamom requires close monitoring right from harvest to the drying and final grading.</p>
+      </div>
+
+      <!-- Row 1: 3 cards -->
+      <div class="stage-grid">
+
+        <div class="stage-card reveal">
+          <div class="stage-img-wrap">
+            <img src="./Assest/Plantation/plantation-6-months.jpg" alt="6 Months Growth" />
+            <span class="stage-badge">1</span>
+          </div>
+          <div class="stage-body">
+            <h4>6 Months</h4>
+            <p>Young cardamom plants begin establishing strong roots and healthy growth.</p>
+          </div>
+        </div>
+
+        <div class="stage-card reveal">
+          <div class="stage-img-wrap">
+            <img src="./Assest/Plantation/plantation-1-year.jpg" alt="After One Year" />
+            <span class="stage-badge">2</span>
+          </div>
+          <div class="stage-body">
+            <h4>After One Year</h4>
+            <p>The plant matures and starts producing the first cardamom capsules.</p>
+          </div>
+        </div>
+
+        <div class="stage-card reveal">
+          <div class="stage-img-wrap">
+            <img src="./Assest/Plantation/plantation-2-year.jpg" alt="After 2 Year" />
+            <span class="stage-badge">3</span>
+          </div>
+          <div class="stage-body">
+            <h4>After 2 Year</h4>
+            <p>Cardamom flowers tip to start to steady harvesting of premium cardamom capsules.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Row 2: 1 card (left-aligned) -->
+      <div class="stage-grid-bottom">
+        <div class="stage-card reveal">
+          <div class="stage-img-wrap">
+            <img src="./Assest/Plantation/plantation-3-year.jpg" alt="3rd and 4th Year" />
+            <span class="stage-badge">4</span>
+          </div>
+          <div class="stage-body">
+            <h4>At 3rd &amp; 4th Year</h4>
+            <p>The plantation reaches peak productivity with high quality capsule harvests.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CARDAMOM HARVESTING — Intro text
+  ══════════════════════════════════════ -->
+  <section class="intro-section" style="padding: 64px 0 0;">
+    <div class="container">
+      <div class="reveal">
+        <h2>Cardamom Harvesting</h2>
+        <p>Cardamom plants normally start bearing capsules from the third year of planting. The capsules are plucked manually by hand. After harvest, cardamom capsules are processed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       HARVESTING SECTION — Harvest Stages
+  ══════════════════════════════════════ -->
+  <section class="stage-section" style="padding-top: 48px;">
+    <div class="container">
+      <div class="stage-head reveal">
+        <span class="sec-label">Procurement</span>
+        <h2>Processing</h2>
+        <p>In every 45 to 60 days, Approximately 8 times in one season</p>
+      </div>
+
+      <!-- Row 1: 3 cards -->
+      <div class="stage-grid">
+
+        <div class="stage-card reveal">
+          <div class="stage-img-wrap">
+            <img src="./Assest/Plantation/harveting-1.jpg" alt="Harvesting 1" />
+            <span class="stage-badge">1</span>
+          </div>
+          <div class="stage-body">
+            <h4>Harvesting</h4>
+            <p>Ripe cardamom capsules are carefully hand-picked to maintain freshness and quality.</p>
+          </div>
+        </div>
+
+        <div class="stage-card reveal">
+          <div class="stage-img-wrap">
+            <img src="./Assest/Plantation/harveting-2.jpg" alt="Harvesting 2" />
+            <span class="stage-badge">2</span>
+          </div>
+          <div class="stage-body">
+            <h4>Harvesting</h4>
+            <p>Ripe cardamom capsules are carefully hand-picked to maintain freshness and quality.</p>
+          </div>
+        </div>
+
+        <div class="stage-card reveal">
+          <div class="stage-img-wrap">
+            <img src="./Assest/Plantation/harveting-3.jpg" alt="Harvesting 3" />
+            <span class="stage-badge">2</span>
+          </div>
+          <div class="stage-body">
+            <h4>Harvesting</h4>
+            <p>Ripe cardamom capsules are carefully hand-picked to maintain freshness and quality.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Row 2: 1 card -->
+      <div class="stage-grid-bottom">
+        <div class="stage-card reveal">
+          <div class="stage-img-wrap">
+            <img src="./Assest/Plantation/cardamom-capsules-1.jpg" alt="Cardamom Capsules" />
+            <span class="stage-badge">1</span>
+          </div>
+          <div class="stage-body">
+            <h4>Cardamom Capsules</h4>
+            <p>Ripe cardamom capsules are carefully hand-picked to maintain freshness and quality.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CTA — "Experience Our Quality"
+  ══════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card reveal">
+        <h2>Experience Our Quality</h2>
+        <p>Ready to experience the difference that our quality process makes? Contact us today to place your order.</p>
+        <a href="contact.html" class="btn-gold">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="f-grid">
+
+        <div class="f-brand">
+          <div class="f-logo">
+            <img class="f-logo-img"
+                 src="./Assest/Plantation/SML Logo.png"
+                 alt="Spice Masters International" />
+            <div class="f-logo-text">
+              <span class="f-logo-name">Spice Masters International</span>
+              <span class="f-logo-slogan">Pure Spices, Healthy living</span>
+            </div>
+          </div>
+          <p>We are committed to delivering the finest quality spices to the world, sourced from the lush plantations of South India.</p>
+          <div class="f-social">
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="X / Twitter">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round">
+                <path d="M4 4l16 16M20 4L4 20"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="#fff">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="#fff">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1F4D2E"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="f-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="plantation.html">Plantation</a></li>
+            <li><a href="trading.html">Trading</a></li>
+            <li><a href="quality-process.html">Quality Process</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#">Green Cardamom</a></li>
+            <li><a href="#">Black Pepper</a></li>
+            <li><a href="#">Forest Honey</a></li>
+            <li><a href="#">Premium Thai</a></li>
+            <li><a href="#">Premium Coffee</a></li>
+            <li><a href="#">Dry Fruits</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4>Get In Touch</h4>
+          <div class="f-addr">
+            <strong>Spice Masters International</strong>
+            Door No: 78, Ward No 28<br>
+            Vennimalai Street, Bodinayakanur<br>
+            Theni District – 625513<br>
+            Tamilnadu, India<br><br>
+            <a href="mailto:spicemasters@digital.com">spicemasters@digital.com</a><br>
+            <a href="tel:+919876543210">+91 98765 43210</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="f-bottom">
+        <p>© 2026 spicemasters.in. All Rights Reserved.</p>
+        <p>Pure Spices, Healthy Living</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════ -->
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>

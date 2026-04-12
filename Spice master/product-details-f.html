@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Green Cardamom Pods – Spice Masters International</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:  #1F4D2E;
+      --gold:   #C9A227;
+      --dark:   #1F2937;
+      --gray:   #6B7280;
+      --light:  #E5E7EB;
+      --sand:   #F5F5F5;
+      --white:  #FFFFFF;
+      --font-h: 'Playfair Display', serif;
+      --font-b: 'Open Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); color: var(--dark); background: var(--white); overflow-x: hidden; }
+    img  { display: block; max-width: 100%; }
+    a    { text-decoration: none; color: inherit; }
+    ul   { list-style: none; }
+    .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+
+    /* ══════════════════════════════════════
+       NAVBAR — solid green
+    ══════════════════════════════════════ */
+    .navbar {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 200;
+      background: var(--green);
+      box-shadow: 0 2px 24px rgba(0,0,0,.28);
+      transition: background .4s ease, box-shadow .4s ease;
+    }
+    .navbar.scrolled { background: var(--green); box-shadow: 0 2px 24px rgba(0,0,0,.28); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 80px; padding: 0 48px; max-width: 1440px; margin: 0 auto;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; flex-shrink: 0; }
+    .nav-logo-img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid rgba(255,255,255,.3); background: #fff; }
+    .nav-logo-text { display: flex; flex-direction: column; gap: 3px; }
+    .nav-logo-name { font-family: var(--font-h); font-size: 17px; font-weight: 700; color: #fff; line-height: 1; white-space: nowrap; }
+    .nav-logo-slogan { font-family: var(--font-b); font-size: 13px; font-weight: 600; color: var(--gold); line-height: 1; white-space: nowrap; }
+    .nav-links { display: flex; gap: 2px; align-items: center; }
+    .nav-links a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.88); letter-spacing: .3px; padding: 6px 11px; border-radius: 4px; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-btn { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; padding: 10px 22px; border-radius: 5px; background: var(--gold); color: #fff; transition: opacity .2s; white-space: nowrap; }
+    .nav-btn:hover { opacity: .85; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-menu { display: none; flex-direction: column; background: var(--green); max-height: 0; overflow: hidden; transition: max-height .4s; }
+    .mobile-menu.open { max-height: 480px; }
+    .mobile-menu a { padding: 13px 24px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,.9); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* ══════════════════════════════════════
+       BREADCRUMB
+    ══════════════════════════════════════ */
+    .breadcrumb-bar {
+      margin-top: 80px; padding: 14px 0;
+      border-bottom: 1px solid var(--light); background: var(--white);
+    }
+    .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--gray); }
+    .breadcrumb a { color: var(--gray); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--green); }
+    .breadcrumb .sep { color: var(--light); }
+    .breadcrumb .current { color: var(--dark); font-weight: 600; }
+
+    /* ══════════════════════════════════════
+       PRODUCT DETAIL SECTION
+    ══════════════════════════════════════ */
+    .product-section { padding: 56px 0 0; background: var(--white); }
+
+    /* Grid — same 1fr 1fr as about-grid with stretch */
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: stretch;
+    }
+
+    /* LEFT: sticky image — same CSS as .about-img */
+    .product-image-col {
+      position: sticky;
+      top: 104px;
+      align-self: flex-start;
+      height: fit-content;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,.12);
+    }
+    .product-image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      min-height: 540px;
+      border-radius: 12px;
+    }
+
+    /* RIGHT: scrollable content */
+    .product-content-col { padding-bottom: 72px; }
+
+    /* Back link + badge */
+    .product-top-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .back-link { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--gray); transition: color .2s; }
+    .back-link:hover { color: var(--green); }
+    .back-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .quality-badge { display: inline-block; font-size: 12px; font-weight: 600; color: var(--dark); border: 1px solid var(--light); border-radius: 20px; padding: 4px 14px; background: var(--white); }
+
+    /* Title */
+    .product-title { font-family: var(--font-h); font-size: clamp(28px,3.5vw,44px); font-weight: 700; color: var(--dark); line-height: 1.15; margin-bottom: 28px; }
+
+    /* Info cards */
+    .info-card { background: var(--white); border: 1px solid var(--light); border-radius: 12px; padding: 24px 28px; margin-bottom: 16px; }
+    .info-card.desc-card h4 { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+    .info-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .info-card-icon { width: 38px; height: 38px; border-radius: 50%; background: #F0FDF4; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .info-card-icon svg { width: 18px; height: 18px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .info-card h4 { font-size: 15px; font-weight: 700; color: var(--dark); }
+    .info-card p { font-size: 14px; color: var(--gray); line-height: 1.8; }
+
+    /* Why Choose box */
+    .why-card { background: var(--sand); border: 1px solid var(--light); border-radius: 12px; padding: 24px 28px; margin-bottom: 24px; }
+    .why-card h4 { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 16px; }
+    .why-list { display: flex; flex-direction: column; gap: 10px; }
+    .why-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--dark); font-weight: 500; }
+    .why-item svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* Request Quote button */
+    .btn-request-quote { display: block; width: 100%; padding: 18px; background: var(--green); color: #fff; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; border-radius: 8px; text-align: center; border: 2px solid var(--green); transition: .25s; }
+    .btn-request-quote:hover { background: transparent; color: var(--green); }
+
+    /* ══════════════════════════════════════
+       BULK CTA
+    ══════════════════════════════════════ */
+    .bulk-cta { padding: 64px 0 80px; background: var(--white); }
+    .bulk-cta-card {
+      background: var(--green); border-radius: 20px;
+      padding: 80px 64px; text-align: center;
+      position: relative; overflow: hidden;
+      box-shadow: 0 20px 64px rgba(31,77,46,.25);
+    }
+    .bulk-cta-card::before, .bulk-cta-card::after {
+      content: ''; position: absolute; border-radius: 50%;
+      background: rgba(255,255,255,.06); pointer-events: none;
+    }
+    .bulk-cta-card::before { width: 260px; height: 260px; top: -80px; right: -80px; }
+    .bulk-cta-card::after  { width: 200px; height: 200px; bottom: -60px; left: -60px; }
+    .bulk-cta-card h2 { font-family: var(--font-h); font-size: clamp(26px,3.5vw,40px); font-weight: 700; color: #fff; margin-bottom: 14px; position: relative; }
+    .bulk-cta-card p { font-size: 15px; color: rgba(255,255,255,.80); line-height: 1.75; max-width: 520px; margin: 0 auto 36px; position: relative; }
+    .btn-get-touch { display: inline-block; padding: 14px 40px; background: var(--gold); color: #fff; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; border-radius: 6px; border: 2px solid var(--gold); transition: .25s; position: relative; }
+    .btn-get-touch:hover { background: transparent; color: var(--gold); }
+
+    /* ══════════════════════════════════════
+       FOOTER — exact match to about & products page
+    ══════════════════════════════════════ */
+    .footer { background: var(--green); color: #fff; padding: 60px 0 28px; }
+    .f-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.5fr; gap: 44px; margin-bottom: 44px; }
+    .f-logo { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .f-logo-img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid rgba(255,255,255,.3); background: #fff; }
+    .f-logo-text { display: flex; flex-direction: column; gap: 3px; }
+    .f-logo-name { font-family: var(--font-h); font-size: 17px; font-weight: 700; color: #fff; line-height: 1; white-space: nowrap; }
+    .f-logo-slogan { font-family: var(--font-b); font-size: 13px; font-weight: 600; color: var(--gold); line-height: 1; white-space: nowrap; }
+    .f-brand p { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.85; margin-bottom: 20px; }
+    .f-social { display: flex; gap: 8px; flex-wrap: wrap; }
+    .f-social a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 7px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); transition: background .2s, border-color .2s, transform .2s; }
+    .f-social a:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-3px); }
+    .f-social a svg { width: 15px; height: 15px; display: block; }
+    .f-col h4 { font-size: 12px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .7px; margin-bottom: 18px; }
+    .f-col ul li { margin-bottom: 10px; }
+    .f-col ul li a { font-size: 13px; color: rgba(255,255,255,.65); transition: color .2s; }
+    .f-col ul li a:hover { color: var(--gold); }
+    .f-addr { font-size: 13px; color: rgba(255,255,255,.65); line-height: 2.1; }
+    .f-addr strong { color: #fff; display: block; margin-bottom: 2px; }
+    .f-addr a { color: rgba(255,255,255,.65); transition: color .2s; }
+    .f-addr a:hover { color: var(--gold); }
+    .f-bottom { border-top: 1px solid rgba(255,255,255,.12); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .f-bottom p { font-size: 12px; color: rgba(255,255,255,.4); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — fully mobile friendly
+    ══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .nav-links a { font-size: 12px; padding: 5px 8px; }
+      .nav-logo-name { font-size: 15px; }
+      .product-layout { gap: 40px; }
+    }
+    @media (max-width: 1024px) {
+      .f-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .nav-inner { padding: 0 20px; }
+      .nav-links, .nav-btn { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+      /* Stack on mobile */
+      .product-layout { grid-template-columns: 1fr; gap: 28px; align-items: start; }
+      .product-image-col { position: static; width: 100%; }
+      .product-image-col img { min-height: 260px; }
+      .bulk-cta-card { padding: 56px 28px; border-radius: 14px; }
+      .f-grid { grid-template-columns: 1fr; gap: 28px; }
+      .f-bottom { flex-direction: column; align-items: center; text-align: center; gap: 6px; }
+      .nav-logo-name { font-size: 14px; }
+      .f-logo-name { font-size: 15px; }
+    }
+    @media (max-width: 580px) {
+      .nav-logo-slogan, .f-logo-slogan { font-size: 11px; }
+      .bulk-cta-card { padding: 48px 20px; }
+      .product-title { font-size: 26px; }
+      .info-card { padding: 20px; }
+      .why-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img class="nav-logo-img"
+             src="./Assest/Product/SML Logo.png"
+             alt="Spice Masters International" />
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Spice Masters International</span>
+          <span class="nav-logo-slogan">Pure Spices, Healthy living</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="products.html" class="active">Products</a></li>
+        <li><a href="plantation.html">Plantation</a></li>
+        <li><a href="trading.html">Trading</a></li>
+        <li><a href="process.html">Quality Process</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+
+      <a href="contact.html" class="nav-btn">Get In Touch</a>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="Home.html">Home</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="plantation.html">Plantation</a>
+      <a href="trading.html">Trading</a>
+      <a href="process.html">Quality Process</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       BREADCRUMB
+  ══════════════════════════════════════ -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="Home.html">Home</a>
+        <span class="sep">/</span>
+        <a href="products.html">Products</a>
+        <span class="sep">/</span>
+        <span class="current">Premium Green Cardamom Pods</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PRODUCT DETAIL
+       Left: sticky image (same size as about page left image)
+       Right: scrollable content cards
+       When right content ends → CTA + footer scroll up naturally
+  ══════════════════════════════════════ -->
+  <section class="product-section">
+    <div class="container">
+      <div class="product-layout">
+
+        <!-- LEFT: sticky image -->
+        <div class="product-image-col">
+          <img src="./Assest/Product/Cardamom-Joint-Seeds.jpg"
+               alt="Premium Green Cardamom Pods" />
+        </div>
+
+        <!-- RIGHT: scrollable content -->
+        <div class="product-content-col">
+
+          <div class="product-top-row">
+            <a href="products.html" class="back-link">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+              Back to Products
+            </a>
+            <span class="quality-badge">Premium Quality</span>
+          </div>
+
+          <h1 class="product-title">Premium Green Cardamom Pods</h1>
+
+          <!-- Product Description -->
+          <div class="info-card desc-card">
+            <h4>Product Description</h4>
+            <p>Finest quality whole green cardamom pods, known for their intense aromatic flavor and sweet, citrusy notes. Perfect for both sweet and savory dishes, and traditional Indian beverages.</p>
+          </div>
+
+          <!-- Sourcing Information -->
+          <div class="info-card">
+            <div class="info-card-header">
+              <div class="info-card-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M2 22c0-6 4-12 10-12s10 6 10 12"/>
+                  <path d="M12 10C12 4 8 2 4 2c0 4 2 8 8 8z"/>
+                  <path d="M12 10c0-4 4-8 8-8 0 4-2 8-8 8z"/>
+                </svg>
+              </div>
+              <h4>Sourcing Information</h4>
+            </div>
+            <p>Sourced directly from the high-altitude plantations of Idukki, Kerala, India, where traditional farming methods ensure optimal flavor and aroma.</p>
+          </div>
+
+          <!-- Quality Specifications -->
+          <div class="info-card">
+            <div class="info-card-header">
+              <div class="info-card-icon">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="8" r="6"/>
+                  <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                </svg>
+              </div>
+              <h4>Quality Specifications</h4>
+            </div>
+            <p>Grade A, 8mm+ size, vibrant green color, high volatile oil content (min 6%), hand-sorted for purity, free from artificial colors and preservatives.</p>
+          </div>
+
+          <!-- Why Choose Our Spices -->
+          <div class="why-card">
+            <h4>Why Choose Our Spices?</h4>
+            <div class="why-list">
+              <div class="why-item">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="#1F4D2E" stroke-width="2"/>
+                  <polyline points="8 12 11 15 16 9" stroke="#1F4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Sourced directly from farmers
+              </div>
+              <div class="why-item">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="#1F4D2E" stroke-width="2"/>
+                  <polyline points="8 12 11 15 16 9" stroke="#1F4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Rigorous quality control process
+              </div>
+              <div class="why-item">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="#1F4D2E" stroke-width="2"/>
+                  <polyline points="8 12 11 15 16 9" stroke="#1F4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Organic transitioning practices
+              </div>
+              <div class="why-item">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="#1F4D2E" stroke-width="2"/>
+                  <polyline points="8 12 11 15 16 9" stroke="#1F4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Fresh and authentic flavors
+              </div>
+            </div>
+          </div>
+
+          <a href="contact.html" class="btn-request-quote">Request Quote</a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       BULK CTA
+  ══════════════════════════════════════ -->
+  <div class="bulk-cta">
+    <div class="container">
+      <div class="bulk-cta-card">
+        <h2>Interested in Bulk Orders?</h2>
+        <p>Contact us for special pricing on bulk orders and custom packaging options.</p>
+        <a href="contact.html" class="btn-get-touch">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       FOOTER — identical to about & products pages
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="f-grid">
+
+        <div class="f-brand">
+          <div class="f-logo">
+            <img class="f-logo-img"
+                 src="./Assest/Product/SML Logo.png"
+                 alt="Spice Masters International" />
+            <div class="f-logo-text">
+              <span class="f-logo-name">Spice Masters International</span>
+              <span class="f-logo-slogan">Pure Spices, Healthy living</span>
+            </div>
+          </div>
+          <p>We are committed to delivering the finest quality spices to the world, sourced from the lush plantations of South India.</p>
+          <div class="f-social">
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="X / Twitter">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round">
+                <path d="M4 4l16 16M20 4L4 20"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="#fff">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="#fff">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1F4D2E"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="f-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="plantation.html">Plantation</a></li>
+            <li><a href="trading.html">Trading</a></li>
+            <li><a href="process.html">Quality Process</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#">Premium Green Cardamom</a></li>
+            <li><a href="#">Indian Black Pepper</a></li>
+            <li><a href="#">Pure Forest Honey</a></li>
+            <li><a href="#">Premium Tea &amp; Coffee</a></li>
+            <li><a href="#">Premium Almond</a></li>
+            <li><a href="#">Premium Raisins</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4>Get In Touch</h4>
+          <div class="f-addr">
+            <strong>Spice Masters International</strong>
+            Door No: 78, Ward No 28<br>
+            Vennimalai Street, Bodinayakanur<br>
+            Theni District – 625513<br>
+            Tamilnadu, India<br><br>
+            <a href="mailto:info@spicemasters.in">info@spicemasters.in</a><br>
+            <a href="tel:+919876543210">+91 98765 43210</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="f-bottom">
+        <p>© 2026 spicemasters.in. All Rights Reserved.</p>
+        <p>Pure Spices, Healthy Living</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════ -->
+  <script>
+    // Navbar
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // Keep sticky top offset correct after resize
+    function setStickyTop() {
+      const col = document.querySelector('.product-image-col');
+      if (col && window.innerWidth > 768) {
+        col.style.top = '104px';
+      }
+    }
+    setStickyTop();
+    window.addEventListener('resize', setStickyTop);
+  </script>
+
+</body>
+</html>
