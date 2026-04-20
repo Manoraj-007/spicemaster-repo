@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – Spice Masters International</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:  #1F4D2E;
+      --gold:   #C9A227;
+      --dark:   #1F2937;
+      --gray:   #6B7280;
+      --light:  #E5E7EB;
+      --sand:   #F5F5F5;
+      --white:  #FFFFFF;
+      --font-h: 'Playfair Display', serif;
+      --font-b: 'Open Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); color: var(--dark); background: var(--white); overflow-x: hidden; }
+    img  { display: block; max-width: 100%; }
+    a    { text-decoration: none; color: inherit; }
+    ul   { list-style: none; }
+    .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ══════════════════════════════════════
+       NAVBAR — identical to about page
+    ══════════════════════════════════════ */
+    .navbar {
+      position: fixed; top: 0; left: 0; width: 100%;
+      z-index: 200;
+      background: var(--green);
+      box-shadow: 0 2px 24px rgba(0,0,0,.28);
+      transition: background .4s ease, box-shadow .4s ease;
+    }
+    .navbar.scrolled { background: var(--green); box-shadow: 0 2px 24px rgba(0,0,0,.28); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 80px; padding: 0 48px;
+      max-width: 1440px; margin: 0 auto;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; flex-shrink: 0; }
+    .nav-logo-img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid rgba(255,255,255,.3); background: #fff; }
+    .nav-logo-text { display: flex; flex-direction: column; gap: 3px; }
+    .nav-logo-name { font-family: var(--font-h); font-size: 17px; font-weight: 700; color: #fff; line-height: 1; white-space: nowrap; }
+    .nav-logo-slogan { font-family: var(--font-b); font-size: 13px; font-weight: 600; color: var(--gold); line-height: 1; white-space: nowrap; }
+    .nav-links { display: flex; gap: 2px; align-items: center; }
+    .nav-links a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.88); letter-spacing: .3px; padding: 6px 11px; border-radius: 4px; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-btn { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; padding: 10px 22px; border-radius: 5px; background: var(--gold); color: #fff; transition: opacity .2s; white-space: nowrap; }
+    .nav-btn:hover { opacity: .85; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-menu { display: none; flex-direction: column; background: var(--green); max-height: 0; overflow: hidden; transition: max-height .4s; }
+    .mobile-menu.open { max-height: 480px; }
+    .mobile-menu a { padding: 13px 24px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,.9); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* ══════════════════════════════════════
+       PAGE HERO — "Contact Us"
+       landscape/mountain background
+    ══════════════════════════════════════ */
+    .page-hero {
+      position: relative; height: 360px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+      margin-top: 80px;
+    }
+    .page-hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, #2c4a1e 0%, #3d6b28 30%, #7a9e4e 65%, #b8c878 100%);
+      background-image: url('./Assest/Contact/Contact-hero.png');
+      background-size: cover; background-position: center;
+    }
+    .page-hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(15,35,10,.55) 0%, rgba(15,35,10,.38) 100%);
+    }
+    .page-hero-body { position: relative; z-index: 2; padding: 0 24px; }
+    .page-hero-label { font-size: 13px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .7px; margin-bottom: 14px; display: block; }
+    .page-hero h1 { font-family: var(--font-h); font-size: clamp(36px,5vw,60px); font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 14px; }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,.88); line-height: 1.7; max-width: 580px; margin: 0 auto; }
+
+    /* ══════════════════════════════════════
+       MAIN CONTACT SECTION
+       Left: info cards + business hours
+       Right: contact form
+    ══════════════════════════════════════ */
+    .contact-section { padding: 80px 0 72px; background: var(--white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* ── LEFT COLUMN ── */
+    .contact-left h2 {
+      font-family: var(--font-h); font-size: clamp(26px,3vw,36px);
+      font-weight: 700; color: var(--dark);
+      margin-bottom: 32px;
+    }
+
+    /* Info cards — location, email, call */
+    .info-cards { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--light);
+      border-radius: 12px;
+      padding: 20px 22px;
+      display: flex; align-items: flex-start; gap: 16px;
+      transition: box-shadow .3s;
+    }
+    .info-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.07); }
+    .info-card-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: #F0FDF4;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .info-card-icon svg { width: 20px; height: 20px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .info-card-body h4 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .info-card-body p, .info-card-body a {
+      font-size: 13px; color: var(--gray); line-height: 1.8;
+    }
+    .info-card-body a:hover { color: var(--green); }
+
+    /* Business Hours card — sand background */
+    .hours-card {
+      background: var(--sand);
+      border: 1px solid var(--light);
+      border-radius: 12px;
+      padding: 22px 24px;
+    }
+    .hours-card h4 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 16px; }
+    .hours-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--light); }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .day { font-size: 13px; color: var(--gray); }
+    .hours-row .time { font-size: 13px; font-weight: 600; color: var(--dark); }
+    .hours-row .time.closed { color: var(--gray); font-weight: 400; }
+
+    /* ── RIGHT COLUMN — FORM ── */
+    .contact-right { background: var(--white); }
+    .contact-right h3 {
+      font-family: var(--font-h); font-size: clamp(22px,2.5vw,30px);
+      font-weight: 700; color: var(--dark);
+      margin-bottom: 28px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block; font-size: 13px; font-weight: 600;
+      color: var(--dark); margin-bottom: 7px;
+    }
+    .form-label span { color: #e53e3e; margin-left: 2px; }
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      border: 1px solid var(--light);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: var(--font-b);
+      font-size: 14px;
+      color: var(--dark);
+      background: var(--white);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: #9CA3AF; }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(31,77,46,.08);
+    }
+    .form-textarea { resize: vertical; min-height: 130px; }
+    .btn-send {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 16px;
+      background: var(--green); color: #fff;
+      font-family: var(--font-b); font-size: 15px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .7px;
+      border: 2px solid var(--green); border-radius: 8px;
+      cursor: pointer; transition: .25s;
+      margin-top: 4px;
+    }
+    .btn-send:hover { background: transparent; color: var(--green); }
+    .btn-send svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ══════════════════════════════════════
+       VISIT OUR LOCATION — map placeholder
+    ══════════════════════════════════════ */
+    .map-section { padding: 72px 0 80px; background: var(--white); }
+    .map-head { text-align: center; margin-bottom: 36px; }
+    .map-head h2 { font-family: var(--font-h); font-size: clamp(26px,3vw,40px); font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+    .map-head p  { font-size: 15px; color: var(--gray); line-height: 1.7; }
+    /* Live Google Maps embed */
+    .map-wrap {
+      border: 1px solid var(--light);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,.08);
+      height: 420px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    /* ══════════════════════════════════════
+       FOOTER — identical to about page
+       (with contact-page footer that shows
+        address + email + phone with icons)
+    ══════════════════════════════════════ */
+    .footer { background: var(--green); color: #fff; padding: 60px 0 28px; }
+    .f-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.5fr; gap: 44px; margin-bottom: 44px; }
+    .f-logo { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .f-logo-img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid rgba(255,255,255,.3); background: #fff; }
+    .f-logo-text { display: flex; flex-direction: column; gap: 3px; }
+    .f-logo-name { font-family: var(--font-h); font-size: 17px; font-weight: 700; color: #fff; line-height: 1; white-space: nowrap; }
+    .f-logo-slogan { font-family: var(--font-b); font-size: 13px; font-weight: 600; color: var(--gold); line-height: 1; white-space: nowrap; }
+    .f-brand p { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.85; margin-bottom: 20px; }
+    .f-social { display: flex; gap: 8px; flex-wrap: wrap; }
+    .f-social a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 7px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); transition: background .2s, border-color .2s, transform .2s; }
+    .f-social a:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-3px); }
+    .f-social a svg { width: 15px; height: 15px; display: block; }
+    .f-col h4 { font-size: 12px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .7px; margin-bottom: 18px; }
+    .f-col ul li { margin-bottom: 10px; }
+    .f-col ul li a { font-size: 13px; color: rgba(255,255,255,.65); transition: color .2s; }
+    .f-col ul li a:hover { color: var(--gold); }
+    /* Footer contact column with icons (as seen in screenshot) */
+    .f-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+    .f-contact-item svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 2px; }
+    .f-contact-item span, .f-contact-item a {
+      font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.75;
+    }
+    .f-contact-item strong { color: #fff; display: block; font-size: 13px; }
+    .f-contact-item a:hover { color: var(--gold); }
+    .f-bottom { border-top: 1px solid rgba(255,255,255,.12); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .f-bottom p { font-size: 12px; color: rgba(255,255,255,.4); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — fully mobile friendly
+    ══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .nav-links a { font-size: 12px; padding: 5px 8px; }
+      .nav-logo-name { font-size: 15px; }
+      .contact-grid { gap: 40px; }
+    }
+    @media (max-width: 1024px) {
+      .f-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .nav-inner { padding: 0 20px; }
+      .nav-links, .nav-btn { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .f-grid { grid-template-columns: 1fr; gap: 28px; }
+      .f-bottom { flex-direction: column; align-items: center; text-align: center; gap: 6px; }
+      .page-hero { height: 280px; }
+      .map-wrap { height: 300px; }
+      .nav-logo-name { font-size: 14px; }
+      .f-logo-name { font-size: 15px; }
+      .contact-section { padding: 56px 0 48px; }
+    }
+    @media (max-width: 580px) {
+      .nav-logo-slogan, .f-logo-slogan { font-size: 11px; }
+      .hours-row { flex-direction: column; align-items: flex-start; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR — identical to about page
+  ══════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="Home.html" class="nav-logo">
+        <img class="nav-logo-img"
+             src="./Assest/Contact/SML Logo.png"
+             alt="Spice Masters International" />
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Spice Masters International</span>
+          <span class="nav-logo-slogan">Pure Spices, Healthy living</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="plantation.html">Plantation</a></li>
+        <li><a href="trading.html">Trading</a></li>
+        <li><a href="quality-process.html">Quality Process</a></li>
+        <li><a href="contact.html" class="active">Contact Us</a></li>
+      </ul>
+
+      <a href="contact.html" class="nav-btn">Get In Touch</a>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="Home.html">Home</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="plantation.html">Plantation</a>
+      <a href="trading.html">Trading</a>
+      <a href="quality-process.html">Quality Process</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       PAGE HERO — "Contact Us"
+  ══════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-body">
+      <span class="page-hero-label">Get In Touch</span>
+      <h1>Contact Us</h1>
+      <p>We're here to answer your questions and discuss your spice requirements</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       MAIN CONTACT SECTION
+       Left: info + hours | Right: form
+  ══════════════════════════════════════ -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- ── LEFT: Get In Touch info ── -->
+        <div class="contact-left reveal">
+          <h2>Get In Touch</h2>
+
+          <div class="info-cards">
+
+            <!-- Our Location -->
+            <div class="info-card">
+              <div class="info-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="info-card-body">
+                <h4>Our Location</h4>
+                <p>
+                  Spice Masters International,<br>
+                  Door No: 78, Ward No 28<br>
+                  Vennimalai Street<br>
+                  Bodinayakanur<br>
+                  Theni District - 625513<br>
+                  Tamilnadu, India
+                </p>
+              </div>
+            </div>
+
+            <!-- Email Us -->
+            <div class="info-card">
+              <div class="info-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="info-card-body">
+                <h4>Email Us</h4>
+                <a href="mailto:spicemastersintl@gmail.com">spicemastersintl@gmail.com</a>
+              </div>
+            </div>
+
+            <!-- Call Us -->
+            <div class="info-card">
+              <div class="info-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.93a16 16 0 0 0 6.16 6.16l.93-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="info-card-body">
+                <h4>Call Us</h4>
+                <a href="tel:+917904659375">+91 7904659375</a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Business Hours -->
+          <div class="hours-card">
+            <h4>Business Hours</h4>
+            <div class="hours-row">
+              <span class="day">Monday - Friday:</span>
+              <span class="time">9:00 AM - 6:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Saturday:</span>
+              <span class="time">9:00 AM - 2:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Sunday:</span>
+              <span class="time closed">Closed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── RIGHT: Send Us a Message form ── -->
+        <div class="contact-right reveal">
+          <h3>Send Us a Message</h3>
+
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+
+            <div class="form-group">
+              <label class="form-label" for="fullName">Full Name <span>*</span></label>
+              <input class="form-input" type="text" id="fullName" name="fullName" placeholder="Enter your full name" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address <span>*</span></label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="your.email@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="+91 1234567890" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="subject">Subject <span>*</span></label>
+              <input class="form-input" type="text" id="subject" name="subject" placeholder="How can we help you?" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Message <span>*</span></label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your requirements..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-send">
+              <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+
+          </form>
+
+          <!-- Success message (hidden by default) -->
+          <div id="successMsg" style="display:none; margin-top:20px; padding:16px 20px; background:#F0FDF4; border:1px solid #bbf7d0; border-radius:10px; color:#166534; font-size:14px; font-weight:600;">
+            ✓ Your message has been sent successfully! We'll get back to you within 24 hours.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       VISIT OUR LOCATION — map embed area
+  ══════════════════════════════════════ -->
+  <section class="map-section">
+    <div class="container">
+      <div class="map-head reveal">
+        <h2>Visit Our Location</h2>
+        <p>Located in the heart of Bodinayakanur, the cardamom trading capital of India</p>
+      </div>
+
+      <!-- Live Google Maps — Bodinayakanur, Theni District, Tamil Nadu -->
+      <div class="map-wrap reveal">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.0!2d77.3533!3d9.7882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06ce5e5e5e5e5f%3A0x1234567890abcdef!2sBodinayakanur%2C%20Tamil%20Nadu%20625513!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+          width="100%"
+          height="420"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Spice Masters International Location — Bodinayakanur, Tamil Nadu">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER — identical to about page
+       Contact column uses icons (as in screenshot)
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="f-grid">
+
+        <!-- Brand + social -->
+        <div class="f-brand">
+          <div class="f-logo">
+            <img class="f-logo-img"
+                 src="./Assest/Contact/SML Logo.png"
+                 alt="Spice Masters International" />
+            <div class="f-logo-text">
+              <span class="f-logo-name">Spice Masters International</span>
+              <span class="f-logo-slogan">Pure Spices, Healthy living</span>
+            </div>
+          </div>
+          <p>We are committed to delivering the finest quality spices to the world, sourced from the lush plantations of South India.</p>
+          <div class="f-social">
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="X / Twitter">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round">
+                <path d="M4 4l16 16M20 4L4 20"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="#fff">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="#fff">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1F4D2E"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="f-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="plantation.html">Plantation</a></li>
+            <li><a href="trading.html">Trading</a></li>
+            <li><a href="quality-process.html">Quality Process</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Products -->
+        <div class="f-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#">Green Cardamom</a></li>
+            <li><a href="#">Black pepper</a></li>
+            <li><a href="#">Forest Honey</a></li>
+            <li><a href="#">Premium Tea</a></li>
+            <li><a href="#">Premium Coffee</a></li>
+            <li><a href="#">Dry Fruits</a></li>
+          </ul>
+        </div>
+
+        <!-- Get In Touch — with icons as seen in screenshot -->
+        <div class="f-col">
+          <h4>Get In Touch</h4>
+
+          <div class="f-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>
+              <strong>Spice Masters International,</strong>
+              Door No: 78, Ward No 28<br>
+              Vennimalai Street<br>
+              Bodinayakanur<br>
+              Theni District - 625513<br>
+              Tamilnadu, India
+            </span>
+          </div>
+
+          <div class="f-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:spicemastersintl@gmail.com">spicemastersintl@gmail.com</a>
+          </div>
+
+          <div class="f-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.93a16 16 0 0 0 6.16 6.16l.93-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+917904659375">+91 7904659375</a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="f-bottom">
+        <p>© 2026 spicemasters.in. All Rights Reserved.</p>
+        <p>Pure Spices, Healthy Living</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════ -->
+  <script>
+    // Navbar
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Form submit handler — shows success message
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('contactForm');
+      const success = document.getElementById('successMsg');
+      form.style.display = 'none';
+      success.style.display = 'block';
+      // To hook up real email sending, replace above with
+      // a fetch() call to your backend or a service like FormSpree/EmailJS
+    }
+  </script>
+
+</body>
+</html>
